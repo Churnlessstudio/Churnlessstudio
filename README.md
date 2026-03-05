@@ -1,435 +1,158 @@
+Index · HTML
+Copy
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Churnless Studio — Marketing & Growth</title>
+<title>Churnless Studio — Growth Operating Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --cream: #F7F4EF;
-    --ink: #131210;
-    --accent: #C8A96E;
-    --mid: #7A7468;
-    --border: #E2DDD6;
-  }
-
+  :root { --cream: #F7F4EF; --ink: #131210; --accent: #C8A96E; --mid: #7A7468; --border: #E2DDD6; }
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-weight: 300; overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 28px 60px;
-    background: rgba(247,244,239,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; background: rgba(247,244,239,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
   nav.scrolled { border-color: var(--border); }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    text-decoration: none;
-  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
   .logo span { color: var(--accent); }
-
   .nav-links { display: flex; gap: 40px; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--mid);
-    font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 400;
-    transition: color 0.2s;
-  }
+  .nav-links a { text-decoration: none; color: var(--mid); font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 400; transition: color 0.2s; }
   .nav-links a:hover { color: var(--ink); }
-
-  .nav-cta {
-    background: var(--ink); color: var(--cream) !important;
-    padding: 10px 22px; border-radius: 2px;
-    font-size: 0.8rem !important; letter-spacing: 0.08em !important;
-    text-transform: uppercase; font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
+  .nav-cta { background: var(--ink) !important; color: var(--cream) !important; padding: 10px 22px; border-radius: 2px; font-size: 0.8rem !important; letter-spacing: 0.08em !important; text-transform: uppercase; font-weight: 500 !important; }
   .nav-cta:hover { background: var(--accent) !important; color: var(--ink) !important; }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 100px;
-  }
-
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 60px 80px 60px;
-  }
-
-  .hero-tag {
-    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); font-weight: 500; margin-bottom: 28px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .hero-tag::before {
-    content: '';
-    display: inline-block; width: 30px; height: 1px;
-    background: var(--accent);
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
-  }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 90px; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 60px; }
+  .hero-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+  .hero-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 28px; }
   h1 em { font-style: italic; color: var(--accent); }
-
-  .hero-sub {
-    font-size: 1.05rem; line-height: 1.7; color: var(--mid);
-    max-width: 420px; margin-bottom: 48px;
-  }
-
-  .hero-actions { display: flex; gap: 16px; align-items: center; }
-
-  .btn-primary {
-    background: var(--ink); color: var(--cream);
-    padding: 16px 32px; text-decoration: none;
-    font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase;
-    font-weight: 500; border-radius: 2px;
-    transition: background 0.2s, transform 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--accent); color: var(--ink); transform: translateY(-1px); }
-
-  .btn-ghost {
-    color: var(--mid); text-decoration: none;
-    font-size: 0.85rem; letter-spacing: 0.04em; font-weight: 400;
-    display: flex; align-items: center; gap: 8px;
-    transition: color 0.2s, gap 0.2s;
-  }
+  .hero-sub { font-size: 1rem; line-height: 1.75; color: var(--mid); max-width: 420px; margin-bottom: 44px; }
+  .hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--ink); color: var(--cream); padding: 15px 30px; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--accent); color: var(--ink); transform: translateY(-2px); }
+  .btn-ghost { color: var(--mid); text-decoration: none; font-size: 0.85rem; font-weight: 400; display: flex; align-items: center; gap: 8px; transition: color 0.2s, gap 0.2s; }
   .btn-ghost:hover { color: var(--ink); gap: 14px; }
-  .btn-ghost::after { content: '→'; font-size: 1rem; }
+  .btn-ghost::after { content: '→'; }
 
-  .hero-right {
-    position: relative; overflow: hidden;
-    background: var(--ink);
-  }
-  .hero-right::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: 
-      radial-gradient(ellipse at 30% 60%, rgba(200,169,110,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(200,169,110,0.08) 0%, transparent 50%);
-  }
+  .hero-right { position: relative; overflow: hidden; background: var(--ink); display: flex; align-items: center; }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 70%, rgba(200,169,110,0.15) 0%, transparent 55%), radial-gradient(ellipse at 80% 10%, rgba(200,169,110,0.07) 0%, transparent 50%); pointer-events: none; }
+  .hero-big-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Playfair Display', serif; font-size: clamp(5rem, 10vw, 11rem); color: rgba(255,255,255,0.03); white-space: nowrap; pointer-events: none; }
+  .hero-right-content { position: relative; z-index: 1; padding: 60px 52px; width: 100%; }
+  .hr-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 16px; }
+  .hr-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: rgba(247,244,239,0.92); line-height: 1.2; margin-bottom: 12px; }
+  .hr-sub { font-size: 0.88rem; color: rgba(247,244,239,0.38); line-height: 1.7; margin-bottom: 40px; max-width: 340px; }
+  .pillars { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.07); }
+  .pillar { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: background 0.2s; }
+  .pillar:hover { background: rgba(200,169,110,0.05); margin: 0 -8px; padding-left: 8px; padding-right: 8px; }
+  .pillar-icon { color: var(--accent); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; transition: transform 0.2s; }
+  .pillar:hover .pillar-icon { transform: translateX(4px); }
+  .pillar-title { font-size: 0.9rem; color: rgba(247,244,239,0.85); font-weight: 500; margin-bottom: 3px; letter-spacing: 0.01em; }
+  .pillar-desc { font-size: 0.8rem; color: rgba(247,244,239,0.32); line-height: 1.6; }
 
-  .hero-stats {
-    position: absolute; bottom: 60px; left: 50px; right: 50px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1px; background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .stat-box {
-    padding: 28px 28px;
-    background: rgba(247,244,239,0.03);
-  }
-  .stat-box:hover { background: rgba(200,169,110,0.08); }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem; color: #F7F4EF;
-    line-height: 1; margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(247,244,239,0.4); font-weight: 400;
-  }
-
-  .hero-big-text {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(4rem, 9vw, 10rem);
-    color: rgba(255,255,255,0.04);
-    white-space: nowrap;
-    letter-spacing: -0.02em;
-    pointer-events: none;
-  }
-
-  .hero-right-inner {
-    position: absolute; top: 50px; left: 50px; right: 50px;
-  }
-  .hr-tag {
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); font-weight: 500;
-    margin-bottom: 16px;
-  }
-  .hr-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; color: rgba(247,244,239,0.9);
-    line-height: 1.3; margin-bottom: 8px;
-  }
-  .hr-sub { font-size: 0.85rem; color: rgba(247,244,239,0.35); line-height: 1.6; }
-
-  /* SECTION BASE */
-  section { padding: 120px 60px; }
-  .section-tag {
-    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--accent); font-weight: 500; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-tag::before {
-    content: ''; display: inline-block; width: 24px; height: 1px;
-    background: var(--accent);
-  }
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3.5rem);
-    line-height: 1.1; letter-spacing: -0.02em;
-  }
+  section { padding: 110px 60px; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .section-tag::before { content: ''; display: block; width: 22px; height: 1px; background: var(--accent); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.2vw, 3.2rem); line-height: 1.12; letter-spacing: -0.02em; }
   h2 em { font-style: italic; color: var(--accent); }
 
-  /* SERVICES */
   .services { background: var(--cream); }
-  .services-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: end; margin-bottom: 80px;
-  }
-  .services-header p {
-    color: var(--mid); font-size: 1rem; line-height: 1.8; align-self: end;
-    padding-bottom: 4px;
-  }
-
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--border);
-  }
-  .service-card {
-    padding: 48px 40px;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.3s;
-    position: relative; overflow: hidden;
-  }
+  .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+  .services-header p { color: var(--mid); font-size: 0.98rem; line-height: 1.85; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
+  .service-card { padding: 44px 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.25s; position: relative; overflow: hidden; }
   .service-card:nth-child(3n) { border-right: none; }
-  .service-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: var(--accent);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .service-card:hover { background: white; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .service-card:hover { background: #fff; }
   .service-card:hover::after { transform: scaleX(1); }
+  .service-num { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--accent); font-weight: 500; margin-bottom: 22px; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.28rem; margin-bottom: 12px; }
+  .service-card p { color: var(--mid); font-size: 0.88rem; line-height: 1.8; }
 
-  .service-num {
-    font-size: 0.7rem; letter-spacing: 0.15em; color: var(--accent);
-    font-weight: 500; margin-bottom: 24px;
-  }
-  .service-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem; margin-bottom: 14px; letter-spacing: -0.01em;
-  }
-  .service-card p {
-    color: var(--mid); font-size: 0.9rem; line-height: 1.75;
-  }
-
-  /* WORK */
   .work { background: var(--ink); color: var(--cream); }
   .work .section-tag { color: var(--accent); }
   .work h2 { color: var(--cream); }
-
-  .work-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 60px;
-  }
-  .work-header a {
-    color: var(--accent); text-decoration: none; font-size: 0.85rem;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    display: flex; align-items: center; gap: 8px;
-    transition: gap 0.2s;
-  }
-  .work-header a:hover { gap: 14px; }
-  .work-header a::after { content: '→'; }
-
-  .work-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .work-card {
-    position: relative; overflow: hidden;
-    background: rgba(255,255,255,0.03);
-    aspect-ratio: 16/10;
-    cursor: pointer;
-  }
+  .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .work-link { color: var(--accent); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+  .work-link:hover { gap: 14px; }
+  .work-link::after { content: '→'; }
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .work-card { position: relative; overflow: hidden; aspect-ratio: 16/10; cursor: pointer; }
   .work-card:first-child { grid-column: 1 / -1; aspect-ratio: 21/9; }
+  .work-bg { position: absolute; inset: 0; transition: transform 0.6s ease; }
+  .work-card:hover .work-bg { transform: scale(1.05); }
+  .wc1 .work-bg { background: linear-gradient(135deg, #1a1814 0%, #2e2920 55%, rgba(200,169,110,0.12) 100%); }
+  .wc2 .work-bg { background: linear-gradient(135deg, #131618 0%, #1c2530 100%); }
+  .wc3 .work-bg { background: linear-gradient(135deg, #161413 0%, #241d16 100%); }
+  .wc1-dots { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(200,169,110,0.04) 0, rgba(200,169,110,0.04) 1px, transparent 1px, transparent 38px); }
+  .work-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 36px; background: linear-gradient(transparent, rgba(0,0,0,0.65)); }
+  .work-tag { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+  .work-info h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--cream); }
+  .work-card:first-child .work-info h3 { font-size: 1.9rem; }
+  .work-info p { color: rgba(247,244,239,0.45); font-size: 0.83rem; margin-top: 5px; }
 
-  .work-card-bg {
-    position: absolute; inset: 0;
-    transition: transform 0.6s ease;
-  }
-  .work-card:hover .work-card-bg { transform: scale(1.04); }
-
-  .wc1 .work-card-bg { background: linear-gradient(135deg, #1a1814 0%, #2d2820 60%, rgba(200,169,110,0.15) 100%); }
-  .wc2 .work-card-bg { background: linear-gradient(135deg, #141618 0%, #1e2530 100%); }
-  .wc3 .work-card-bg { background: linear-gradient(135deg, #171514 0%, #251e18 100%); }
-
-  .wc1-pattern {
-    position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg,
-      rgba(200,169,110,0.04) 0px, rgba(200,169,110,0.04) 1px,
-      transparent 1px, transparent 40px
-    );
-  }
-
-  .work-card-info {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 36px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
-  }
-  .work-label {
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 8px;
-  }
-  .work-card-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; color: var(--cream);
-    letter-spacing: -0.01em;
-  }
-  .work-card:first-child .work-card-info h3 { font-size: 2rem; }
-  .work-card-info p {
-    color: rgba(247,244,239,0.5); font-size: 0.85rem;
-    margin-top: 4px;
-  }
-
-  /* PROCESS */
-  .process {
-    background: white;
-    padding: 120px 60px;
-  }
-  .process-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: end; margin-bottom: 80px;
-  }
-  .process-header p {
-    color: var(--mid); font-size: 1rem; line-height: 1.8; align-self: end;
-  }
-
-  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .process-step {
-    padding: 0 40px 0 0;
-    border-right: 1px solid var(--border);
-    padding-right: 40px;
-  }
-  .process-step:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
-  .process-step:not(:first-child) { padding-left: 40px; }
+  .process { background: #fff; padding: 110px 60px; }
+  .process-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+  .process-header p { color: var(--mid); font-size: 0.98rem; line-height: 1.85; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .process-step { padding: 0 36px; border-right: 1px solid var(--border); }
   .process-step:first-child { padding-left: 0; }
+  .process-step:last-child { border-right: none; padding-right: 0; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: var(--border); line-height: 1; margin-bottom: 20px; }
+  .process-step h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; }
+  .process-step p { color: var(--mid); font-size: 0.88rem; line-height: 1.8; }
 
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; color: var(--border);
-    line-height: 1; margin-bottom: 24px;
-  }
-  .process-step h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; margin-bottom: 12px;
-  }
-  .process-step p { color: var(--mid); font-size: 0.9rem; line-height: 1.75; }
-
-  /* CTA */
-  .cta-section {
-    background: var(--ink);
-    display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 60vh; align-items: center;
-    padding: 0;
-  }
-  .cta-left {
-    padding: 100px 80px;
-    border-right: 1px solid rgba(255,255,255,0.06);
-  }
+  .cta-section { background: var(--ink); display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+  .cta-left { padding: 100px 80px; border-right: 1px solid rgba(255,255,255,0.06); }
   .cta-left .section-tag { color: var(--accent); }
-  .cta-left h2 {
-    color: var(--cream); font-size: clamp(2.2rem, 4vw, 4rem);
-    margin-bottom: 24px; margin-top: 16px;
-  }
-  .cta-left p { color: rgba(247,244,239,0.5); line-height: 1.8; max-width: 380px; margin-bottom: 40px; }
-  .cta-right {
-    padding: 100px 80px;
-    display: flex; flex-direction: column; gap: 28px;
-  }
-  .contact-item {
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding-bottom: 28px;
-  }
+  .cta-left h2 { color: var(--cream); margin: 16px 0 20px; }
+  .cta-left p { color: rgba(247,244,239,0.45); line-height: 1.85; max-width: 370px; margin-bottom: 38px; font-size: 0.95rem; }
+  .cta-right { padding: 100px 80px; display: flex; flex-direction: column; gap: 26px; }
+  .contact-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 26px; }
   .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .contact-label {
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 8px;
-  }
-  .contact-value {
-    color: var(--cream); font-size: 1.1rem; text-decoration: none;
-    transition: color 0.2s;
-  }
+  .contact-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+  .contact-value { color: var(--cream); font-size: 1.05rem; text-decoration: none; transition: color 0.2s; display: block; }
   .contact-value:hover { color: var(--accent); }
+  .social-links { display: flex; gap: 20px; margin-top: 4px; }
+  .social-links a { color: rgba(247,244,239,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .social-links a:hover { color: var(--accent); }
 
-  /* FOOTER */
-  footer {
-    background: var(--ink); color: rgba(247,244,239,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 28px 60px;
-    font-size: 0.8rem; letter-spacing: 0.04em;
-  }
-  footer a { color: rgba(247,244,239,0.3); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--accent); }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; color: rgba(247,244,239,0.6);
-  }
+  footer { background: var(--ink); color: rgba(247,244,239,0.28); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; padding: 26px 60px; font-size: 0.78rem; letter-spacing: 0.04em; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: rgba(247,244,239,0.55); }
   .footer-logo span { color: var(--accent); }
+  footer a { color: rgba(247,244,239,0.28); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--accent); }
+  .footer-links { display: flex; gap: 24px; }
 
-  /* ANIMATIONS */
-  .fade-up {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
 
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
+  @media (max-width: 860px) {
+    nav { padding: 18px 24px; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 80px; }
+    .hero-left { padding: 48px 24px 60px; }
     .hero-right { display: none; }
-    .hero-left { padding: 40px 24px 60px; }
-    section, .process, .cta-section { padding: 80px 24px; }
-    .services-header, .process-header { grid-template-columns: 1fr; }
+    section, .process { padding: 72px 24px; }
+    .services-header, .process-header { grid-template-columns: 1fr; gap: 24px; }
     .services-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card:first-child { grid-column: 1; aspect-ratio: 16/9; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
     .process-step { border-right: none; padding: 0 !important; }
-    .work-grid { grid-template-columns: 1fr; }
-    .work-card:first-child { grid-column: 1; }
     .cta-section { grid-template-columns: 1fr; }
     .cta-left, .cta-right { padding: 60px 24px; }
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+    .cta-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    footer { flex-direction: column; gap: 14px; text-align: center; padding: 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">Churnless<span>.</span></a>
   <ul class="nav-links">
@@ -440,12 +163,11 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Marketing & Growth Agency</div>
-    <h1>Growth that <em>sticks.</em></h1>
-    <p class="hero-sub">We build marketing systems that retain customers, compound revenue, and turn your brand into something people talk about.</p>
+    <div class="hero-tag">Growth Operating Agency</div>
+    <h1>We build your <em>growth engine.</em></h1>
+    <p class="hero-sub">We design and implement the systems that drive revenue — across marketing, sales, and retention — using data, automation, and strategic experimentation.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start a Project</a>
       <a href="#work" class="btn-ghost">See Our Work</a>
@@ -453,162 +175,170 @@
   </div>
   <div class="hero-right">
     <div class="hero-big-text">Growth</div>
-    <div class="hero-right-inner">
-      <div class="hr-tag">Currently Accepting Clients</div>
-      <div class="hr-title">Q2 2025 Roster</div>
-      <div class="hr-sub">Limited to 4 new engagements per quarter to maintain the quality our clients deserve.</div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-box">
-        <div class="stat-num">94%</div>
-        <div class="stat-label">Client Retention</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">3.2×</div>
-        <div class="stat-label">Avg. Revenue Lift</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Brands Grown</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">6yr</div>
-        <div class="stat-label">In the Field</div>
+    <div class="hero-right-content">
+      <div class="hr-tag">Why Churnless Studio</div>
+      <div class="hr-title">Built different.<br>By design.</div>
+      <div class="hr-sub">Most agencies sell you campaigns. We build the full system — then operate it with you until it works.</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">→</div>
+          <div>
+            <div class="pillar-title">Systems over tactics</div>
+            <div class="pillar-desc">We don't chase short-term wins. We build infrastructure that compounds.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">→</div>
+          <div>
+            <div class="pillar-title">Data-driven decisions</div>
+            <div class="pillar-desc">Every move is backed by real numbers — no gut-feel strategy or vanity metrics.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">→</div>
+          <div>
+            <div class="pillar-title">Full-funnel thinking</div>
+            <div class="pillar-desc">From first click to loyal customer — we connect every stage of your revenue engine.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">→</div>
+          <div>
+            <div class="pillar-title">Operators, not consultants</div>
+            <div class="pillar-desc">We don't hand you a deck and leave. We build and run it alongside you.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-header fade-up">
     <div>
       <div class="section-tag">What We Do</div>
-      <h2>Marketing that <em>moves</em> the needle</h2>
+      <h2>Systems that turn traffic into <em>revenue</em></h2>
     </div>
-    <p>We focus entirely on marketing and growth — no fluff, no filler. Every service is designed to drive measurable outcomes for your business.</p>
+    <p>We don't just run campaigns — we build and optimize your full revenue operating system. Every service connects marketing, sales, and retention into one compounding engine.</p>
   </div>
   <div class="services-grid">
     <div class="service-card fade-up">
       <div class="service-num">01</div>
       <h3>Growth Strategy</h3>
-      <p>We map your acquisition and retention levers, then build a coherent strategy that compounds over time instead of chasing one-off wins.</p>
+      <p>We audit your full revenue system, identify the highest-leverage opportunities, and build a clear roadmap connecting marketing, sales, and retention.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-num">02</div>
-      <h3>Paid Media</h3>
-      <p>Performance campaigns across Meta, Google, TikTok, and beyond — built on rigorous testing and creative that actually converts.</p>
+      <h3>Marketing Systems</h3>
+      <p>Paid media, SEO, and content — architected as an integrated acquisition engine designed to drive compounding, predictable traffic and leads.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-num">03</div>
-      <h3>Email & CRM</h3>
-      <p>Lifecycle marketing that nurtures leads, reduces churn, and extracts maximum LTV from the audience you've already earned.</p>
+      <h3>Sales Enablement</h3>
+      <p>We build the pipelines, sequences, and automation that move leads through your funnel faster and convert them into paying customers consistently.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-num">04</div>
-      <h3>Content & SEO</h3>
-      <p>Organic content ecosystems built around real search intent — articles, landing pages, and assets that drive compounding traffic.</p>
+      <h3>Customer Retention</h3>
+      <p>Lifecycle programs, CRM automation, and churn-reduction strategies that turn one-time buyers into long-term, high-LTV customers.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-num">05</div>
-      <h3>Conversion Optimisation</h3>
-      <p>We audit your funnel, identify friction, and run structured experiments to lift conversion rates across every touchpoint.</p>
+      <h3>Data & Automation</h3>
+      <p>We build the data infrastructure and automation workflows that eliminate guesswork and let your growth systems run with minimal manual effort.</p>
     </div>
     <div class="service-card fade-up">
       <div class="service-num">06</div>
-      <h3>Analytics & Reporting</h3>
-      <p>Clear dashboards, attribution modelling, and the data infrastructure to make confident marketing decisions every week.</p>
+      <h3>Strategic Experimentation</h3>
+      <p>A structured testing framework across your funnel — always running experiments, finding winners, and scaling what works.</p>
     </div>
   </div>
 </section>
 
-<!-- WORK -->
 <section class="work" id="work">
   <div class="work-header fade-up">
     <div>
       <div class="section-tag">Selected Work</div>
       <h2>Results we're <em>proud of</em></h2>
     </div>
-    <a href="#contact">View All Cases</a>
+    <a href="#contact" class="work-link">View All Cases</a>
   </div>
   <div class="work-grid">
     <div class="work-card wc1 fade-up">
-      <div class="work-card-bg"></div>
-      <div class="wc1-pattern"></div>
-      <div class="work-card-info">
-        <div class="work-label">E-Commerce · Paid Media · Email</div>
+      <div class="work-bg"></div>
+      <div class="wc1-dots"></div>
+      <div class="work-info">
+        <div class="work-tag">E-Commerce · Paid Media · Email</div>
         <h3>Meridian Supply Co.</h3>
         <p>218% increase in ROAS over 6 months, scaling from $40K to $180K monthly ad spend profitably.</p>
       </div>
     </div>
     <div class="work-card wc2 fade-up">
-      <div class="work-card-bg"></div>
-      <div class="work-card-info">
-        <div class="work-label">SaaS · Growth Strategy</div>
+      <div class="work-bg"></div>
+      <div class="work-info">
+        <div class="work-tag">SaaS · Growth Strategy · CRM</div>
         <h3>Fieldnote App</h3>
-        <p>Reduced churn by 34% through lifecycle email redesign.</p>
+        <p>Reduced churn by 34% through a full lifecycle email and onboarding redesign.</p>
       </div>
     </div>
     <div class="work-card wc3 fade-up">
-      <div class="work-card-bg"></div>
-      <div class="work-card-info">
-        <div class="work-label">DTC · SEO · Content</div>
+      <div class="work-bg"></div>
+      <div class="work-info">
+        <div class="work-tag">DTC · SEO · Content</div>
         <h3>Haven Wellness</h3>
-        <p>Organic traffic tripled in 9 months via content strategy.</p>
+        <p>Organic traffic tripled in 9 months through a focused content and SEO strategy.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="process" id="process">
   <div class="process-header fade-up">
     <div>
       <div class="section-tag">How We Work</div>
-      <h2>A process built for <em>clarity</em></h2>
+      <h2>A process built for <em>results</em></h2>
     </div>
-    <p>No black-box retainers. We operate with full transparency at every stage — you know exactly what we're doing and why.</p>
+    <p>We don't hand you a strategy deck and disappear. We operate inside your business as a true growth partner — building, running, and improving your revenue systems over time.</p>
   </div>
   <div class="process-steps">
     <div class="process-step fade-up">
       <div class="step-num">01</div>
-      <h3>Discovery</h3>
-      <p>We dig into your business, audience, competitors, and data to understand what's working and where the real opportunity lies.</p>
+      <h3>Diagnose</h3>
+      <p>We map your entire revenue system from first touch to retention and pinpoint where the biggest leaks and opportunities are hiding.</p>
     </div>
     <div class="process-step fade-up">
       <div class="step-num">02</div>
-      <h3>Strategy</h3>
-      <p>A clear roadmap with prioritised initiatives, timelines, budgets, and success metrics — no vague deliverables.</p>
+      <h3>Architect</h3>
+      <p>We design your growth engine — the right channels, systems, automation, and experiments in the right order of priority.</p>
     </div>
     <div class="process-step fade-up">
       <div class="step-num">03</div>
-      <h3>Execute</h3>
-      <p>We move fast and iterate based on real data. Campaigns go live, content ships, and tests run continuously.</p>
+      <h3>Operate</h3>
+      <p>We build and run everything — campaigns, sequences, funnels, and tests — iterating fast based on real data, not guesswork.</p>
     </div>
     <div class="process-step fade-up">
       <div class="step-num">04</div>
-      <h3>Scale</h3>
-      <p>Winners get amplified, losers get cut. We scale what works and build the systems to sustain growth long-term.</p>
+      <h3>Compound</h3>
+      <p>Winners get systemised and scaled. The result is a self-reinforcing growth engine that gets stronger and more efficient over time.</p>
     </div>
   </div>
 </section>
 
-<!-- CTA / CONTACT -->
 <div class="cta-section" id="contact">
   <div class="cta-left fade-up">
     <div class="section-tag">Let's Work Together</div>
-    <h2>Ready to stop <em>churning</em> clients?</h2>
-    <p>Tell us about your brand, your goals, and what's been holding you back. We'll come back with a straightforward assessment and a path forward.</p>
-    <a href="mailto:hello@churnlessstudio.com" class="btn-primary">Send Us a Message</a>
+    <h2>Ready to build a real <em>growth engine?</em></h2>
+    <p>Tell us where your business is today and where you want to take it. We'll come back with an honest view of what's holding you back — and exactly what we'd do about it.</p>
+    <a href="/cdn-cgi/l/email-protection#4b232e2727240b28233e3925272e3838383f3e2f222465282426" class="btn-primary">Send Us a Message</a>
   </div>
   <div class="cta-right fade-up">
     <div class="contact-item">
-      <div class="contact-label">Email</div>
-      <a href="mailto:hello@churnlessstudio.com" class="contact-value">hello@churnlessstudio.com</a>
+      <div class="contact-label">General</div>
+      <a href="/cdn-cgi/l/email-protection#f69e939a9a99b6959e8384989a938585858283929f99d895999b" class="contact-value"><span class="__cf_email__" data-cfemail="1b737e7777745b78736e6975777e6868686f6e7f727435787476">[email&#160;protected]</span></a>
     </div>
     <div class="contact-item">
       <div class="contact-label">New Business</div>
-      <a href="mailto:work@churnlessstudio.com" class="contact-value">work@churnlessstudio.com</a>
+      <a href="/cdn-cgi/l/email-protection#c4b3abb6af84a7acb1b6aaa8a1b7b7b7b0b1a0adabeaa7aba9" class="contact-value"><span class="__cf_email__" data-cfemail="7f08100d143f1c170a0d11131a0c0c0c0b0a1b1610511c1012">[email&#160;protected]</span></a>
     </div>
     <div class="contact-item">
       <div class="contact-label">Based in</div>
@@ -616,42 +346,24 @@
     </div>
     <div class="contact-item">
       <div class="contact-label">Follow</div>
-      <div style="display:flex;gap:20px;margin-top:4px">
-        <a href="#" class="contact-value" style="font-size:0.9rem">Twitter</a>
-        <a href="#" class="contact-value" style="font-size:0.9rem">LinkedIn</a>
-        <a href="#" class="contact-value" style="font-size:0.9rem">Instagram</a>
+      <div class="social-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Churnless<span>.</span></div>
   <div>© 2025 Churnless Studio. All rights reserved.</div>
-  <div style="display:flex;gap:24px">
+  <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
   </div>
 </footer>
 
-<script>
-  // Nav scroll
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
-
-  // Fade up on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+  window.
