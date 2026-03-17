@@ -1,0 +1,401 @@
+// ==============================
+//   NUTIRESET — APP LOGIC
+// ==============================
+
+// --- MENU DATA ---
+const dishes = [
+  {
+    id: 1,
+    name: "Grilled Chicken Power Bowl",
+    desc: "Lean grilled chicken with roasted veggies, quinoa & tahini drizzle.",
+    emoji: "🍗",
+    price: 45,
+    calories: 520,
+    protein: "42g",
+    carbs: "38g",
+    fat: "14g",
+    tags: ["protein", "popular"],
+    bg: "#E0F7F5",
+  },
+  {
+    id: 2,
+    name: "Macro Salmon Plate",
+    desc: "Atlantic salmon fillet with steamed broccoli, sweet potato & lemon herb sauce.",
+    emoji: "🐟",
+    price: 65,
+    calories: 610,
+    protein: "48g",
+    carbs: "45g",
+    fat: "22g",
+    tags: ["protein", "popular"],
+    bg: "#FFF7ED",
+  },
+  {
+    id: 3,
+    name: "Beef Kofta & Rice",
+    desc: "Spiced ground beef kofta with saffron basmati, grilled tomato & cucumber salad.",
+    emoji: "🍖",
+    price: 55,
+    calories: 680,
+    protein: "38g",
+    carbs: "62g",
+    fat: "24g",
+    tags: ["protein"],
+    bg: "#FEF3C7",
+  },
+  {
+    id: 4,
+    name: "Zucchini Noodle Bowl",
+    desc: "Spiralized zucchini with pesto, cherry tomatoes, pine nuts & parmesan.",
+    emoji: "🥗",
+    price: 40,
+    calories: 310,
+    protein: "12g",
+    carbs: "18g",
+    fat: "20g",
+    tags: ["lowcarb", "vegetarian"],
+    bg: "#D1FAE5",
+  },
+  {
+    id: 5,
+    name: "Shrimp Stir-Fry",
+    desc: "Juicy shrimp with mixed peppers, snap peas & teriyaki glaze on cauliflower rice.",
+    emoji: "🍤",
+    price: 58,
+    calories: 430,
+    protein: "36g",
+    carbs: "22g",
+    fat: "16g",
+    tags: ["lowcarb", "protein"],
+    bg: "#EDE9FE",
+  },
+  {
+    id: 6,
+    name: "Falafel Veggie Wrap",
+    desc: "Crispy falafel with hummus, pickled veg & greens in a whole wheat wrap.",
+    emoji: "🌯",
+    price: 38,
+    calories: 490,
+    protein: "18g",
+    carbs: "58g",
+    fat: "18g",
+    tags: ["vegetarian"],
+    bg: "#FEE2E2",
+  },
+  {
+    id: 7,
+    name: "Macro Buffet Plate",
+    desc: "Build-your-own plate from our rotating macro-balanced buffet. Ask for today's selection.",
+    emoji: "🍽️",
+    price: 55,
+    calories: 580,
+    protein: "35g",
+    carbs: "50g",
+    fat: "20g",
+    tags: ["buffet", "popular"],
+    bg: "#FFFBEB",
+  },
+  {
+    id: 8,
+    name: "Overnight Oats & Berries",
+    desc: "Creamy oats with chia seeds, mixed berries, honey & almond butter.",
+    emoji: "🫐",
+    price: 35,
+    calories: 380,
+    protein: "14g",
+    carbs: "54g",
+    fat: "12g",
+    tags: ["vegetarian"],
+    bg: "#EFF6FF",
+  },
+  {
+    id: 9,
+    name: "Turkey Stuffed Peppers",
+    desc: "Bell peppers filled with lean turkey mince, brown rice, herbs & tomato sauce.",
+    emoji: "🫑",
+    price: 50,
+    calories: 490,
+    protein: "40g",
+    carbs: "40g",
+    fat: "12g",
+    tags: ["protein", "lowcarb"],
+    bg: "#F0FDF4",
+  },
+  {
+    id: 10,
+    name: "Mezze Reset Box",
+    desc: "Hummus, labneh, tabbouleh, olives & whole grain pita — a fresh Lebanese spread.",
+    emoji: "🫙",
+    price: 42,
+    calories: 420,
+    protein: "16g",
+    carbs: "46g",
+    fat: "20g",
+    tags: ["vegetarian", "buffet"],
+    bg: "#FFF1F2",
+  },
+  {
+    id: 11,
+    name: "Chicken Shawarma Bowl",
+    desc: "Marinated rotisserie chicken, garlic sauce, pickles & fattoush on spiced rice.",
+    emoji: "🌮",
+    price: 48,
+    calories: 560,
+    protein: "44g",
+    carbs: "48g",
+    fat: "14g",
+    tags: ["protein", "popular"],
+    bg: "#FFF7ED",
+  },
+  {
+    id: 12,
+    name: "Cauliflower Steak Plate",
+    desc: "Roasted cauliflower steak with romesco sauce, lentils & wilted spinach.",
+    emoji: "🥦",
+    price: 40,
+    calories: 350,
+    protein: "14g",
+    carbs: "38g",
+    fat: "14g",
+    tags: ["lowcarb", "vegetarian"],
+    bg: "#ECFDF5",
+  },
+];
+
+// --- CART STATE ---
+let cart = {};
+
+// --- RENDER MENU ---
+function renderMenu(filter = "all") {
+  const grid = document.getElementById("menuGrid");
+  grid.innerHTML = "";
+
+  const filtered = filter === "all"
+    ? dishes
+    : dishes.filter(d => d.tags.includes(filter));
+
+  filtered.forEach(dish => {
+    const tagHTML = dish.tags.map(t => {
+      const map = { protein: ["tag-protein","High Protein"], lowcarb: ["tag-lowcarb","Low Carb"], vegetarian: ["tag-veg","Veg"], buffet: ["tag-buffet","Buffet"], popular: ["tag-popular","Popular"] };
+      return `<span class="dish-tag ${map[t][0]}">${map[t][1]}</span>`;
+    }).join("");
+
+    const card = document.createElement("div");
+    card.className = "dish-card";
+    card.innerHTML = `
+      <div class="dish-img" style="background:${dish.bg}">
+        ${dish.emoji}
+        <div class="dish-tags">${tagHTML}</div>
+      </div>
+      <div class="dish-body">
+        <h4>${dish.name}</h4>
+        <p>${dish.desc}</p>
+        <div class="dish-macros">
+          <div class="macro"><strong>${dish.calories}</strong><span>kcal</span></div>
+          <div class="macro"><strong>${dish.protein}</strong><span>protein</span></div>
+          <div class="macro"><strong>${dish.carbs}</strong><span>carbs</span></div>
+          <div class="macro"><strong>${dish.fat}</strong><span>fat</span></div>
+        </div>
+        <div class="dish-footer">
+          <div class="dish-price">QAR ${dish.price} <span>/ meal</span></div>
+          <button class="add-btn" onclick="addToCart(${dish.id})" title="Add to cart">+</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// --- FILTER ---
+function filterMenu(tag, btn) {
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderMenu(tag);
+}
+
+// --- CART LOGIC ---
+function addToCart(id) {
+  const dish = dishes.find(d => d.id === id);
+  if (!dish) return;
+  if (cart[id]) {
+    cart[id].qty++;
+  } else {
+    cart[id] = { ...dish, qty: 1 };
+  }
+  updateCartUI();
+  // Bump animation on cart icon
+  const count = document.getElementById("cartCount");
+  count.classList.add("bump");
+  setTimeout(() => count.classList.remove("bump"), 300);
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) delete cart[id];
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const items = Object.values(cart);
+  const totalQty = items.reduce((s, i) => s + i.qty, 0);
+  const totalAmt = items.reduce((s, i) => s + i.qty * i.price, 0);
+
+  // Nav count
+  document.getElementById("cartCount").textContent = totalQty;
+
+  // Section cart summary
+  const cartItemsEl = document.getElementById("cartItems");
+  const cartTotalEl = document.getElementById("cartTotal");
+
+  if (items.length === 0) {
+    cartItemsEl.innerHTML = '<p class="cart-empty">Your cart is empty.<br/>Add items from the menu above.</p>';
+    cartTotalEl.style.display = "none";
+  } else {
+    cartItemsEl.innerHTML = items.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-emoji">${i.emoji}</div>
+        <div class="cart-item-info">
+          <strong>${i.name}</strong>
+          <span>QAR ${i.price} each</span>
+        </div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
+          <span class="qty-num">${i.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
+        </div>
+      </div>
+    `).join("");
+    document.getElementById("subtotalAmt").textContent = `QAR ${totalAmt}`;
+    document.getElementById("totalAmt").textContent = `QAR ${totalAmt}`;
+    cartTotalEl.style.display = "flex";
+  }
+
+  // Sidebar cart
+  renderSidebarCart(items, totalAmt);
+}
+
+function renderSidebarCart(items, totalAmt) {
+  const el = document.getElementById("sidebarCartItems");
+  const footer = document.getElementById("cartSidebarFooter");
+  if (items.length === 0) {
+    el.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+    footer.style.display = "none";
+  } else {
+    el.innerHTML = items.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-emoji">${i.emoji}</div>
+        <div class="cart-item-info">
+          <strong>${i.name}</strong>
+          <span>QAR ${i.price} × ${i.qty} = QAR ${i.price * i.qty}</span>
+        </div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
+          <span class="qty-num">${i.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
+        </div>
+      </div>
+    `).join("");
+    document.getElementById("sidebarTotal").textContent = `QAR ${totalAmt}`;
+    footer.style.display = "flex";
+  }
+}
+
+// --- CART SIDEBAR ---
+function openCart() {
+  document.getElementById("cartSidebar").classList.add("open");
+  document.getElementById("cartOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeCart() {
+  document.getElementById("cartSidebar").classList.remove("open");
+  document.getElementById("cartOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("cartBtn").addEventListener("click", openCart);
+
+// --- SUBSCRIPTION PLAN SELECTION ---
+function selectPlan(plan, price) {
+  const titles = {
+    weekly: "Weekly Plan Selected 🌿",
+    monthly: "Monthly Plan Selected 🏆",
+  };
+  const descs = {
+    weekly: `You've selected the Weekly Plan at QAR ${price}/week. Fill out the order form below and we'll get you started right away!`,
+    monthly: `Excellent choice! You've selected the Monthly Plan at QAR ${price}/month. Fill out the order form below and enjoy priority service.`,
+  };
+  document.getElementById("subModalTitle").textContent = titles[plan];
+  document.getElementById("subModalDesc").textContent = descs[plan];
+
+  // Pre-select in form
+  document.getElementById("orderType").value = plan;
+  togglePlanField();
+
+  document.getElementById("subModal").classList.add("open");
+}
+
+function closeSubModal() {
+  document.getElementById("subModal").classList.remove("open");
+  document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+}
+
+// --- PLAN FIELD TOGGLE ---
+function togglePlanField() {
+  const type = document.getElementById("orderType").value;
+  const field = document.getElementById("startDateField");
+  field.style.display = "flex";
+}
+
+// --- ORDER FORM SUBMIT ---
+function submitOrder(e) {
+  e.preventDefault();
+  const btn = document.getElementById("submitBtn");
+  const text = document.getElementById("submitText");
+  btn.disabled = true;
+  text.textContent = "Processing...";
+
+  // Simulate API call
+  setTimeout(() => {
+    btn.disabled = false;
+    text.textContent = "Confirm Order";
+    document.getElementById("orderForm").reset();
+    cart = {};
+    updateCartUI();
+    document.getElementById("successModal").classList.add("open");
+  }, 1600);
+}
+
+function closeModal() {
+  document.getElementById("successModal").classList.remove("open");
+}
+
+// Close modals on overlay click
+document.getElementById("successModal").addEventListener("click", function(e) {
+  if (e.target === this) closeModal();
+});
+document.getElementById("subModal").addEventListener("click", function(e) {
+  if (e.target === this) closeSubModal();
+});
+
+// --- MOBILE MENU ---
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.getElementById("mobileMenu").classList.toggle("open");
+});
+function closeMobile() {
+  document.getElementById("mobileMenu").classList.remove("open");
+}
+
+// --- NAV SCROLL ---
+window.addEventListener("scroll", () => {
+  const nav = document.getElementById("nav");
+  nav.classList.toggle("scrolled", window.scrollY > 10);
+});
+
+// --- SET MIN DATE ---
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("startDate").setAttribute("min", today);
+
+// --- INIT ---
+renderMenu();
+updateCartUI();

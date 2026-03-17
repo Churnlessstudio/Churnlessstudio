@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriReset – Personalized Nutrition for Real Life</title>
+  <link rel="stylesheet" href="nutireset.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-nutri">NUTRI</span><span class="logo-reset">RESET</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#subscriptions">Plans</a>
+      <a href="#how">How It Works</a>
+      <a href="#order" class="btn-nav">Order Now</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#menu" onclick="closeMobile()">Menu</a>
+    <a href="#subscriptions" onclick="closeMobile()">Plans</a>
+    <a href="#how" onclick="closeMobile()">How It Works</a>
+    <a href="#order" onclick="closeMobile()" class="btn-mobile-nav">Order Now</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Qatar's #1 Meal Prep Service</p>
+    <h1>Eat Well,<br /><span>Live Fully</span></h1>
+    <p class="hero-sub">Personalized nutrition for real life. Balanced meals, ready-to-eat food &amp; weekly plans delivered to your door.</p>
+    <div class="hero-cta">
+      <a href="#subscriptions" class="btn-primary">Choose a Plan</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>500+</strong><span>Happy Clients</span></div>
+      <div><strong>30+</strong><span>Dishes</span></div>
+      <div><strong>100%</strong><span>Fresh Daily</span></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-img-placeholder">
+      <div class="plate-circle">
+        <div class="plate-inner">
+          <div class="food-emoji">🥗</div>
+          <p>Macro-Balanced Meals</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three simple steps to eating better every day</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">📋</div>
+        <h3>Choose Your Plan</h3>
+        <p>Pick from weekly or monthly subscriptions, or order individual meals on demand.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">🍽️</div>
+        <h3>Select Your Meals</h3>
+        <p>Customize your menu from our chef-crafted, macro-balanced dishes every week.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">🚚</div>
+        <h3>We Deliver Fresh</h3>
+        <p>Your meals are freshly prepared and delivered right to your door in Qatar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTIONS -->
+<section class="subscriptions" id="subscriptions">
+  <div class="container">
+    <h2 class="section-title">Subscription Plans</h2>
+    <p class="section-sub">Commit to your health — save more when you subscribe</p>
+    <div class="plans-grid">
+
+      <div class="plan-card" data-plan="weekly">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-icon">🌿</div>
+        <h3>Weekly Plan</h3>
+        <div class="plan-price"><span>QAR 350</span> / week</div>
+        <p class="plan-desc">5 days of balanced lunches and dinners, freshly prepared.</p>
+        <ul class="plan-features">
+          <li>✓ 5 lunch + 5 dinner daily</li>
+          <li>✓ Macro-tracked meals</li>
+          <li>✓ Weekly menu rotation</li>
+          <li>✓ Free delivery</li>
+          <li>✓ Flexible customization</li>
+        </ul>
+        <button class="btn-plan" onclick="selectPlan('weekly', 350)">Subscribe Weekly</button>
+      </div>
+
+      <div class="plan-card plan-featured" data-plan="monthly">
+        <div class="plan-badge badge-gold">Best Value</div>
+        <div class="plan-icon">🏆</div>
+        <h3>Monthly Plan</h3>
+        <div class="plan-price"><span>QAR 1,200</span> / month</div>
+        <p class="plan-saving">Save QAR 200 vs weekly</p>
+        <p class="plan-desc">Full month of personalized nutrition — our most popular package.</p>
+        <ul class="plan-features">
+          <li>✓ All Weekly Plan benefits</li>
+          <li>✓ Priority delivery slot</li>
+          <li>✓ Free nutrition consultation</li>
+          <li>✓ Custom macro targets</li>
+          <li>✓ Loyalty rewards</li>
+        </ul>
+        <button class="btn-plan btn-plan-featured" onclick="selectPlan('monthly', 1200)">Subscribe Monthly</button>
+      </div>
+
+      <div class="plan-card" data-plan="custom">
+        <div class="plan-badge badge-teal">Flexible</div>
+        <div class="plan-icon">⚡</div>
+        <h3>À La Carte</h3>
+        <div class="plan-price"><span>QAR 35–65</span> / meal</div>
+        <p class="plan-desc">No commitment. Order individual meals whenever you want.</p>
+        <ul class="plan-features">
+          <li>✓ No subscription needed</li>
+          <li>✓ Same day ordering</li>
+          <li>✓ Mix & match dishes</li>
+          <li>✓ Order anytime</li>
+        </ul>
+        <button class="btn-plan" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order À La Carte</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <h2 class="section-title">Our Menu</h2>
+    <p class="section-sub">Chef-crafted, macro-balanced dishes made fresh daily</p>
+
+    <div class="menu-filters">
+      <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
+      <button class="filter-btn" onclick="filterMenu('protein', this)">High Protein</button>
+      <button class="filter-btn" onclick="filterMenu('lowcarb', this)">Low Carb</button>
+      <button class="filter-btn" onclick="filterMenu('vegetarian', this)">Vegetarian</button>
+      <button class="filter-btn" onclick="filterMenu('buffet', this)">Buffet</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ORDER SECTION -->
+<section class="order-section" id="order">
+  <div class="container">
+    <h2 class="section-title">Place Your Order</h2>
+    <p class="section-sub">Complete your details and we'll confirm within minutes</p>
+    <div class="order-wrapper">
+
+      <!-- Cart Summary -->
+      <div class="cart-summary" id="cartSummary">
+        <h3>Your Order</h3>
+        <div class="cart-items" id="cartItems">
+          <p class="cart-empty">Your cart is empty.<br/>Add items from the menu above.</p>
+        </div>
+        <div class="cart-total" id="cartTotal" style="display:none">
+          <div class="total-row"><span>Subtotal</span><span id="subtotalAmt">QAR 0</span></div>
+          <div class="total-row"><span>Delivery</span><span class="free-tag">FREE</span></div>
+          <div class="total-row total-final"><span>Total</span><span id="totalAmt">QAR 0</span></div>
+        </div>
+      </div>
+
+      <!-- Order Form -->
+      <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+        <h3>Your Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="fname" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="+974 XXXX XXXX" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Delivery Address *</label>
+          <input type="text" id="address" placeholder="Area, Street, Building, Flat No." required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Order Type *</label>
+            <select id="orderType" onchange="togglePlanField()">
+              <option value="alacarte">À La Carte (Single Order)</option>
+              <option value="weekly">Weekly Subscription</option>
+              <option value="monthly">Monthly Subscription</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Delivery Time</label>
+            <select id="deliveryTime">
+              <option value="lunch">Lunch (11am – 1pm)</option>
+              <option value="dinner">Dinner (5pm – 7pm)</option>
+              <option value="both">Both (Lunch + Dinner)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" id="startDateField">
+          <label>Start Date *</label>
+          <input type="date" id="startDate" required />
+        </div>
+        <div class="form-group">
+          <label>Dietary Notes / Allergies</label>
+          <textarea id="notes" placeholder="Any allergies, preferences, or special requests..." rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="submitText">Confirm Order</span>
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-card">
+    <div class="modal-icon">✅</div>
+    <h3>Order Confirmed!</h3>
+    <p>Thank you! Your order has been received. Our team will contact you shortly on WhatsApp to confirm delivery details.</p>
+    <p class="modal-contact">📱 <strong>nutrireset.qa</strong></p>
+    <button class="btn-primary" onclick="closeModal()">Done</button>
+  </div>
+</div>
+
+<!-- SUBSCRIPTION MODAL -->
+<div class="modal-overlay" id="subModal">
+  <div class="modal-card">
+    <div class="modal-icon">🌿</div>
+    <h3 id="subModalTitle">Weekly Plan Selected</h3>
+    <p id="subModalDesc">You've chosen the Weekly Plan at QAR 350/week. Fill out the order form below and we'll get you started!</p>
+    <button class="btn-primary" onclick="closeSubModal()">Continue to Order</button>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-sidebar-header">
+    <h3>Your Cart</h3>
+    <button onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-sidebar-items" id="sidebarCartItems">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+  <div class="cart-sidebar-footer" id="cartSidebarFooter" style="display:none">
+    <div class="total-row total-final"><span>Total</span><span id="sidebarTotal">QAR 0</span></div>
+    <button class="btn-primary" onclick="closeCart(); document.getElementById('order').scrollIntoView({behavior:'smooth'})">Proceed to Order</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="logo"><span class="logo-nutri">NUTRI</span><span class="logo-reset">RESET</span></div>
+    <p>Personalized nutrition for real life · Qatar</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/nutrireset.qa" target="_blank">Instagram</a>
+      <span>·</span>
+      <a href="https://nutrireset.qa" target="_blank">Website</a>
+    </div>
+    <p class="footer-copy">© 2026 NutriReset. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="nutireset.js"></script>
+</body>
+</html>
