@@ -536,6 +536,20 @@ const dishes = [
     tags: ["protein"],
     bg: "#FFF7ED",
   },
+  {
+    id: 39,
+    name: "Deli Sandwich",
+    desc: "Sliced ham with fresh lettuce, tomato & cucumber layered in dark whole grain bread.",
+    emoji: "🥪",
+    image: "images/deli-sandwich.jpg",
+    price: 32,
+    calories: 390,
+    protein: "24g",
+    carbs: "38g",
+    fat: "14g",
+    tags: ["protein"],
+    bg: "#FEF9C3",
+  },
 ];
 
 // --- CART STATE ---
