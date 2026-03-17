@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Dorée — Fine Dining</title>
+  <meta name="description" content="Maison Dorée — An intimate fine dining experience. Seasonal tasting menus, world-class wine, and impeccable service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="restaurant.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-text">Maison Dorée</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#reserve">Reserve</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#reserve" class="btn btn-primary nav-cta">Reserve a Table</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#reserve">Reserve</a>
+      <a href="#contact">Contact</a>
+      <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Est. 2018 · Fine Dining</p>
+      <h1 class="hero-title">
+        An Evening <br />
+        <em>Worth Remembering</em>
+      </h1>
+      <p class="hero-sub">Seasonal tasting menus crafted from the finest local produce. A dining experience that transcends the meal.</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn-primary btn-lg">Reserve Your Table</a>
+        <a href="#menu" class="btn btn-outline btn-lg">View Menu</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- RIBBON -->
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <span>Seasonal Tasting Menus</span>
+      <span class="sep">·</span>
+      <span>Sommelier-Curated Wine Pairings</span>
+      <span class="sep">·</span>
+      <span>Private Dining Available</span>
+      <span class="sep">·</span>
+      <span>Open Tue – Sun</span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section id="story" class="section story">
+    <div class="container story-grid">
+      <div class="story-visual">
+        <div class="story-frame">
+          <div class="frame-inner">
+            <div class="frame-icon">🍽️</div>
+            <p class="frame-quote">"Food is the most primitive form of comfort."</p>
+          </div>
+        </div>
+        <div class="story-badge">
+          <span class="badge-year">2018</span>
+          <span class="badge-label">Founded</span>
+        </div>
+      </div>
+      <div class="story-text">
+        <p class="section-eyebrow">Our Story</p>
+        <h2 class="section-title">Born from a <em>Passion</em> for the Extraordinary</h2>
+        <p>Maison Dorée was born from a simple belief: that a great meal is one of life's most profound pleasures. Chef Élise Laurent and sommelier Marc Beaumont set out to create a restaurant where every detail — from the first bite to the final glass — tells a story.</p>
+        <p>Our kitchen sources exclusively from local farms and artisan producers, changing the menu with the seasons to reflect the best of what the land offers. Every dish is a dialogue between tradition and innovation.</p>
+        <div class="story-stats">
+          <div class="s-stat">
+            <span class="s-num">7</span>
+            <span class="s-label">Course Tasting Menu</span>
+          </div>
+          <div class="s-divider"></div>
+          <div class="s-stat">
+            <span class="s-num">200+</span>
+            <span class="s-label">Wine Labels</span>
+          </div>
+          <div class="s-divider"></div>
+          <div class="s-stat">
+            <span class="s-num">2★</span>
+            <span class="s-label">Michelin Stars</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Culinary Journey</p>
+        <h2 class="section-title">Our <em>Menu</em></h2>
+        <p class="section-desc">All menus change seasonally. Dietary requirements accommodated with advance notice.</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="menu-tabs" id="menu-tabs">
+        <button class="tab-btn active" data-tab="tasting">Tasting Menu</button>
+        <button class="tab-btn" data-tab="ala-carte">À La Carte</button>
+        <button class="tab-btn" data-tab="desserts">Desserts</button>
+        <button class="tab-btn" data-tab="wines">Wine Pairing</button>
+      </div>
+
+      <!-- TASTING MENU -->
+      <div class="tab-panel active" id="tab-tasting">
+        <div class="tasting-intro">
+          <p>Our signature 7-course tasting menu — a curated journey through the season's finest ingredients.</p>
+          <div class="tasting-price">
+            <span>£145 per person</span>
+            <span class="price-note">Wine pairing +£75</span>
+          </div>
+        </div>
+        <div class="courses-list">
+          <div class="course-item">
+            <span class="course-num">01</span>
+            <div class="course-info">
+              <h4>Amuse-Bouche</h4>
+              <p>Chef's daily selection of one-bite wonders to awaken the palate</p>
+            </div>
+            <span class="course-tag">Complimentary</span>
+          </div>
+          <div class="course-item">
+            <span class="course-num">02</span>
+            <div class="course-info">
+              <h4>Oscietra Caviar</h4>
+              <p>Hand-blini, crème fraîche, chives, preserved lemon</p>
+            </div>
+          </div>
+          <div class="course-item">
+            <span class="course-num">03</span>
+            <div class="course-info">
+              <h4>Hand-Dived Scallop</h4>
+              <p>Cauliflower velouté, vadouvan butter, Granny Smith apple, hazelnut</p>
+            </div>
+          </div>
+          <div class="course-item">
+            <span class="course-num">04</span>
+            <div class="course-info">
+              <h4>Duck Foie Gras</h4>
+              <p>Brioche perdu, quince gel, Madeira jus, micro herbs</p>
+            </div>
+          </div>
+          <div class="course-item">
+            <span class="course-num">05</span>
+            <div class="course-info">
+              <h4>Cornish Turbot</h4>
+              <p>Wild garlic beurre blanc, sea herbs, samphire, smoked roe</p>
+            </div>
+          </div>
+          <div class="course-item">
+            <span class="course-num">06</span>
+            <div class="course-info">
+              <h4>Aged Wagyu Beef</h4>
+              <p>45-day dry-aged rib, bone marrow gratin, truffle jus, seasonal vegetables</p>
+            </div>
+          </div>
+          <div class="course-item">
+            <span class="course-num">07</span>
+            <div class="course-info">
+              <h4>Mignardises & Petit Fours</h4>
+              <p>A selection of house-made confections to close your journey</p>
+            </div>
+            <span class="course-tag">Complimentary</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- À LA CARTE -->
+      <div class="tab-panel" id="tab-ala-carte">
+        <div class="carte-grid">
+          <div class="carte-section">
+            <h3 class="carte-heading">Starters</h3>
+            <div class="carte-items">
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Burrata &amp; Heritage Tomato</h4>
+                  <p>Basil oil, sea salt, aged balsamic, sourdough crisp</p>
+                </div>
+                <span class="ci-price">£18</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Seared Tuna Tataki</h4>
+                  <p>Ponzu dressing, sesame, avocado cream, micro cress</p>
+                </div>
+                <span class="ci-price">£22</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Wild Mushroom Velouté</h4>
+                  <p>Truffle cream, toasted pine nuts, chervil — <em>Vegan</em></p>
+                </div>
+                <span class="ci-price">£16</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Rabbit Rillettes</h4>
+                  <p>Cornichons, grain mustard, toasted brioche, watercress</p>
+                </div>
+                <span class="ci-price">£20</span>
+              </div>
+            </div>
+          </div>
+          <div class="carte-section">
+            <h3 class="carte-heading">Mains</h3>
+            <div class="carte-items">
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Roasted Halibut</h4>
+                  <p>Asparagus, brown butter, capers, lemon purée, dill oil</p>
+                </div>
+                <span class="ci-price">£42</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Lamb Cannon</h4>
+                  <p>Merguez, aubergine caponata, mint yoghurt, ras el hanout jus</p>
+                </div>
+                <span class="ci-price">£46</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Beef Tenderloin</h4>
+                  <p>Pommes dauphine, béarnaise, watercress, horseradish</p>
+                </div>
+                <span class="ci-price">£52</span>
+              </div>
+              <div class="carte-item">
+                <div class="ci-info">
+                  <h4>Seasonal Risotto</h4>
+                  <p>Market vegetables, aged Parmesan, herbs — <em>Vegetarian</em></p>
+                </div>
+                <span class="ci-price">£28</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="tab-panel" id="tab-desserts">
+        <div class="desserts-grid">
+          <div class="dessert-card">
+            <div class="dessert-icon">🍮</div>
+            <h4>Vanilla Crème Brûlée</h4>
+            <p>Madagascan vanilla, caramelised sugar crust, seasonal berry compote</p>
+            <span class="d-price">£14</span>
+          </div>
+          <div class="dessert-card">
+            <div class="dessert-icon">🍫</div>
+            <h4>Valrhona Chocolate Delice</h4>
+            <p>70% dark chocolate, salted caramel, cocoa nib tuile, vanilla ice cream</p>
+            <span class="d-price">£16</span>
+          </div>
+          <div class="dessert-card">
+            <div class="dessert-icon">🫐</div>
+            <h4>Lemon Tart</h4>
+            <p>Sicilian lemon curd, Italian meringue, blueberry sorbet, candied zest</p>
+            <span class="d-price">£13</span>
+          </div>
+          <div class="dessert-card">
+            <div class="dessert-icon">🍓</div>
+            <h4>Strawberry Pavlova</h4>
+            <p>Hand-picked strawberries, rose cream, pistachio, aged balsamic</p>
+            <span class="d-price">£14</span>
+          </div>
+          <div class="dessert-card">
+            <div class="dessert-icon">🧀</div>
+            <h4>Artisan Cheese Board</h4>
+            <p>Selection of 5 seasonal British &amp; French cheeses, quince, crackers, grapes</p>
+            <span class="d-price">£22</span>
+          </div>
+          <div class="dessert-card">
+            <div class="dessert-icon">🍦</div>
+            <h4>Sorbet Selection</h4>
+            <p>Three seasonal sorbets — ask your server for today's flavours — <em>Vegan</em></p>
+            <span class="d-price">£10</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WINE PAIRING -->
+      <div class="tab-panel" id="tab-wines">
+        <div class="wine-intro">
+          <p>Our sommelier Marc Beaumont has curated three pairing packages to complement the tasting menu.</p>
+        </div>
+        <div class="wine-packages">
+          <div class="wine-card">
+            <div class="wine-label">Classic Pairing</div>
+            <div class="wine-price">£55 <span>per person</span></div>
+            <p>5 hand-selected wines — old-world classics from Burgundy, Bordeaux, and the Rhône Valley.</p>
+            <ul>
+              <li>Chablis Premier Cru</li>
+              <li>Pouilly-Fumé</li>
+              <li>Saint-Émilion Grand Cru</li>
+              <li>Côte-Rôtie</li>
+              <li>Sauternes</li>
+            </ul>
+          </div>
+          <div class="wine-card featured">
+            <div class="wine-tag">Recommended</div>
+            <div class="wine-label">Prestige Pairing</div>
+            <div class="wine-price">£75 <span>per person</span></div>
+            <p>7 wines matching each course, including two Champagnes and a rare Burgundy.</p>
+            <ul>
+              <li>Krug Grande Cuvée NV</li>
+              <li>Meursault 1er Cru</li>
+              <li>Puligny-Montrachet</li>
+              <li>Chambolle-Musigny</li>
+              <li>Pomerol</li>
+              <li>Château d'Yquem</li>
+              <li>Vintage Port</li>
+            </ul>
+          </div>
+          <div class="wine-card">
+            <div class="wine-label">Non-Alcoholic</div>
+            <div class="wine-price">£35 <span>per person</span></div>
+            <p>Thoughtfully crafted pairings using premium juices, botanical infusions, and shrubs.</p>
+            <ul>
+              <li>White grape &amp; elderflower</li>
+              <li>Cucumber &amp; mint shrub</li>
+              <li>Kombucha selection</li>
+              <li>Verjuice &amp; apple</li>
+              <li>House botanical blend</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">More Than a Meal</p>
+        <h2 class="section-title">The <em>Experience</em></h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-icon">🥂</div>
+          <h3>Private Dining</h3>
+          <p>Host intimate celebrations in our private dining room, seating up to 18 guests. Bespoke menus and dedicated service available.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">👨‍🍳</div>
+          <h3>Chef's Table</h3>
+          <p>Sit at the pass and watch your meal come to life. Six seats only — an unscripted conversation between kitchen and guest.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🍷</div>
+          <h3>Wine Cellar Tours</h3>
+          <p>Guided tours of our 600-bottle cellar with Marc Beaumont, available on Saturday evenings. Bookable separately.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🎂</div>
+          <h3>Special Occasions</h3>
+          <p>Anniversaries, proposals, birthdays — let us know and we'll make it unforgettable. Bespoke touches at no extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Praise</p>
+        <h2 class="section-title">What Our Guests <em>Say</em></h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"A flawless evening. Every course was a revelation — the scallop dish alone was worth the journey. Service is warm, knowledgeable, and perfectly unhurried."</p>
+          <div class="review-author">
+            <div class="r-avatar">C</div>
+            <div>
+              <strong>Charlotte D.</strong>
+              <span>Visited March 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card featured">
+          <div class="review-source">The Times ★★★★★</div>
+          <p>"Maison Dorée earns its stars through quiet mastery rather than showy theatrics. Chef Laurent's cooking has a soulfulness that is rare and genuinely moving."</p>
+          <div class="review-author">
+            <div class="r-avatar">T</div>
+            <div>
+              <strong>Food Critic, The Times</strong>
+              <span>Annual Restaurant Awards</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Proposed over the Wagyu course. She said yes. The staff surprised us with a beautiful dessert message. We'll be back every anniversary."</p>
+          <div class="review-author">
+            <div class="r-avatar">J</div>
+            <div>
+              <strong>James &amp; Sophie</strong>
+              <span>Visited February 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reserve" class="section reserve">
+    <div class="container reserve-grid">
+      <div class="reserve-info">
+        <p class="section-eyebrow">Reservations</p>
+        <h2 class="section-title">Reserve Your <em>Table</em></h2>
+        <p>We recommend booking at least two weeks in advance for weekend tables. For parties of 7 or more, please call us directly.</p>
+        <div class="reserve-details">
+          <div class="rd-item">
+            <span class="rd-icon">🕐</span>
+            <div>
+              <strong>Dinner Service</strong>
+              <span>Tuesday – Sunday</span>
+              <span>6:00 pm – 10:30 pm (last seating 9:00 pm)</span>
+            </div>
+          </div>
+          <div class="rd-item">
+            <span class="rd-icon">📞</span>
+            <div>
+              <strong>By Phone</strong>
+              <a href="tel:+442071234567">+44 20 7123 4567</a>
+            </div>
+          </div>
+          <div class="rd-item">
+            <span class="rd-icon">✉️</span>
+            <div>
+              <strong>By Email</strong>
+              <a href="mailto:reservations@maisondoree.co.uk">reservations@maisondoree.co.uk</a>
+            </div>
+          </div>
+          <div class="rd-item">
+            <span class="rd-icon">💳</span>
+            <div>
+              <strong>Deposit Policy</strong>
+              <span>£25 per person deposit required to secure booking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reserve-form-wrap">
+        <h3>Request a Reservation</h3>
+        <form class="reserve-form" id="reserve-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-name">Full Name</label>
+              <input type="text" id="r-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="r-email">Email</label>
+              <input type="email" id="r-email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-date">Preferred Date</label>
+              <input type="date" id="r-date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="r-time">Preferred Time</label>
+              <select id="r-time" name="time" required>
+                <option value="">Select time</option>
+                <option>6:00 pm</option>
+                <option>6:30 pm</option>
+                <option>7:00 pm</option>
+                <option>7:30 pm</option>
+                <option>8:00 pm</option>
+                <option>8:30 pm</option>
+                <option>9:00 pm</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-guests">Number of Guests</label>
+              <select id="r-guests" name="guests" required>
+                <option value="">Select</option>
+                <option>1 guest</option>
+                <option>2 guests</option>
+                <option>3 guests</option>
+                <option>4 guests</option>
+                <option>5 guests</option>
+                <option>6 guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="r-occasion">Special Occasion</label>
+              <select id="r-occasion" name="occasion">
+                <option value="">None</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Proposal</option>
+                <option>Business Dinner</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="r-dietary">Dietary Requirements</label>
+            <textarea id="r-dietary" name="dietary" rows="3" placeholder="Allergies, intolerances, vegetarian, vegan, etc."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Request Reservation</button>
+          <p class="form-note">We will confirm your reservation within 24 hours. A £25/person deposit link will be sent by email.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container contact-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Find Us</p>
+        <h2 class="section-title">Come <em>Visit</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="cc-icon">📍</div>
+          <h4>Address</h4>
+          <p>14 Belgravia Mews<br />London, SW1X 8PQ<br />United Kingdom</p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">🕐</div>
+          <h4>Opening Hours</h4>
+          <p>Tuesday – Friday<br />Dinner: 6:00 pm – 10:30 pm</p>
+          <p>Saturday – Sunday<br />Dinner: 5:30 pm – 10:30 pm</p>
+          <p class="closed">Monday: Closed</p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">📞</div>
+          <h4>Contact</h4>
+          <p><a href="tel:+442071234567">+44 20 7123 4567</a></p>
+          <p><a href="mailto:reservations@maisondoree.co.uk">reservations@maisondoree.co.uk</a></p>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">🚇</div>
+          <h4>Getting Here</h4>
+          <p>Nearest tube: Knightsbridge (Piccadilly line), 4-minute walk.</p>
+          <p>Valet parking available Fri–Sun evenings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Maison Dorée</span>
+        <p>14 Belgravia Mews, London SW1X 8PQ</p>
+        <p>An intimate fine dining experience.</p>
+      </div>
+      <div class="footer-nav">
+        <a href="#story">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#experience">Experience</a>
+        <a href="#reserve">Reserve</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="s-link">Instagram</a>
+        <a href="#" class="s-link">Facebook</a>
+        <a href="#" class="s-link">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Maison Dorée. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="restaurant.js"></script>
+</body>
+</html>
