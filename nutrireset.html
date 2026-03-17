@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriReset | Personalized Nutrition for Real Life</title>
+  <link rel="stylesheet" href="nutrireset.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="logo-box">
+        <span class="logo-nutri">NUTRI</span>
+        <span class="logo-reset">RESET</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#subscriptions">Plans</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="btn-primary" onclick="scrollToSection('subscriptions')">Get Started</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#menu" onclick="toggleMenu()">Menu</a>
+    <a href="#subscriptions" onclick="toggleMenu()">Plans</a>
+    <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Qatar's #1 Fitness Nutrition</div>
+      <h1 class="hero-title">
+        Eat Well,<br />
+        <span class="highlight-orange">Live Fully</span>
+      </h1>
+      <p class="hero-subtitle">
+        Personalized nutrition for real life. Balanced meals, ready-to-eat food, and weekly plans crafted to fuel your fitness goals.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-large" onclick="scrollToSection('subscriptions')">Start Your Plan</button>
+        <button class="btn-outline btn-large" onclick="scrollToSection('menu')">Explore Menu</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Fresh Meals</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Meal Options</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="meal-card-float">
+        <div class="meal-card-inner">
+          <div class="meal-icon">🥗</div>
+          <div>
+            <div class="meal-card-title">Macro-Balanced Bowl</div>
+            <div class="meal-card-macros">
+              <span class="macro p">32g P</span>
+              <span class="macro c">45g C</span>
+              <span class="macro f">18g F</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-cal">420 kcal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Three simple steps to your nutrition reset</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">🎯</div>
+          <h3>Choose Your Plan</h3>
+          <p>Select a weekly or monthly subscription that fits your fitness goals and dietary preferences.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">👩‍🍳</div>
+          <h3>We Prepare Fresh</h3>
+          <p>Our nutrition experts prepare your meals fresh daily using whole, quality ingredients.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">🚀</div>
+          <h3>Delivered to You</h3>
+          <p>Your meals arrive ready-to-eat, on time, so you never compromise on nutrition again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Menu</h2>
+        <p>Macro-balanced meals built for performance</p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="menu-filters">
+        <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
+        <button class="filter-btn" onclick="filterMenu('breakfast', this)">Breakfast</button>
+        <button class="filter-btn" onclick="filterMenu('lunch', this)">Lunch</button>
+        <button class="filter-btn" onclick="filterMenu('dinner', this)">Dinner</button>
+        <button class="filter-btn" onclick="filterMenu('snack', this)">Snacks</button>
+      </div>
+
+      <div class="menu-grid" id="menu-grid">
+        <!-- Breakfast -->
+        <div class="menu-card" data-category="breakfast">
+          <div class="menu-card-emoji">🍳</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Protein Egg Bowl</h3>
+              <span class="menu-badge">Breakfast</span>
+            </div>
+            <p>Scrambled eggs, turkey, spinach, brown rice & avocado</p>
+            <div class="macros-row">
+              <span class="macro p">38g P</span>
+              <span class="macro c">42g C</span>
+              <span class="macro f">14g F</span>
+              <span class="kcal">480 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 42</span>
+              <button class="btn-add" onclick="addToCart('Protein Egg Bowl', 42)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="breakfast">
+          <div class="menu-card-emoji">🥤</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Power Smoothie Bowl</h3>
+              <span class="menu-badge">Breakfast</span>
+            </div>
+            <p>Açaí, banana, protein powder, granola, chia seeds & berries</p>
+            <div class="macros-row">
+              <span class="macro p">28g P</span>
+              <span class="macro c">55g C</span>
+              <span class="macro f">10g F</span>
+              <span class="kcal">420 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 38</span>
+              <button class="btn-add" onclick="addToCart('Power Smoothie Bowl', 38)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="menu-card" data-category="lunch">
+          <div class="menu-card-emoji">🍗</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Grilled Chicken & Quinoa</h3>
+              <span class="menu-badge">Lunch</span>
+            </div>
+            <p>Herb-marinated chicken breast, quinoa, roasted veggies & tahini</p>
+            <div class="macros-row">
+              <span class="macro p">45g P</span>
+              <span class="macro c">48g C</span>
+              <span class="macro f">16g F</span>
+              <span class="kcal">520 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 52</span>
+              <button class="btn-add" onclick="addToCart('Grilled Chicken & Quinoa', 52)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="lunch">
+          <div class="menu-card-emoji">🥗</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Macro Buddha Bowl</h3>
+              <span class="menu-badge">Lunch</span>
+            </div>
+            <p>Tuna, chickpeas, sweet potato, kale, cucumber & lemon dressing</p>
+            <div class="macros-row">
+              <span class="macro p">32g P</span>
+              <span class="macro c">45g C</span>
+              <span class="macro f">18g F</span>
+              <span class="kcal">460 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 48</span>
+              <button class="btn-add" onclick="addToCart('Macro Buddha Bowl', 48)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="lunch">
+          <div class="menu-card-emoji">🫙</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Lean Beef Stir Fry</h3>
+              <span class="menu-badge">Lunch</span>
+            </div>
+            <p>Lean beef strips, broccoli, snap peas, brown rice & ginger soy</p>
+            <div class="macros-row">
+              <span class="macro p">42g P</span>
+              <span class="macro c">50g C</span>
+              <span class="macro f">12g F</span>
+              <span class="kcal">490 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 55</span>
+              <button class="btn-add" onclick="addToCart('Lean Beef Stir Fry', 55)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="menu-card" data-category="dinner">
+          <div class="menu-card-emoji">🐟</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Baked Salmon & Greens</h3>
+              <span class="menu-badge">Dinner</span>
+            </div>
+            <p>Atlantic salmon, asparagus, spinach, cauliflower rice & lemon herb</p>
+            <div class="macros-row">
+              <span class="macro p">40g P</span>
+              <span class="macro c">22g C</span>
+              <span class="macro f">22g F</span>
+              <span class="kcal">440 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 62</span>
+              <button class="btn-add" onclick="addToCart('Baked Salmon & Greens', 62)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="dinner">
+          <div class="menu-card-emoji">🍲</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Turkey Meatball Bowl</h3>
+              <span class="menu-badge">Dinner</span>
+            </div>
+            <p>Herb turkey meatballs, zucchini noodles, marinara & parmesan</p>
+            <div class="macros-row">
+              <span class="macro p">38g P</span>
+              <span class="macro c">30g C</span>
+              <span class="macro f">14g F</span>
+              <span class="kcal">400 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 50</span>
+              <button class="btn-add" onclick="addToCart('Turkey Meatball Bowl', 50)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snacks -->
+        <div class="menu-card" data-category="snack">
+          <div class="menu-card-emoji">🥜</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Protein Bites Box</h3>
+              <span class="menu-badge">Snack</span>
+            </div>
+            <p>Oats, almond butter, whey protein, honey & dark chocolate chips</p>
+            <div class="macros-row">
+              <span class="macro p">20g P</span>
+              <span class="macro c">28g C</span>
+              <span class="macro f">10g F</span>
+              <span class="kcal">280 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 28</span>
+              <button class="btn-add" onclick="addToCart('Protein Bites Box', 28)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="snack">
+          <div class="menu-card-emoji">🍮</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Greek Yogurt Parfait</h3>
+              <span class="menu-badge">Snack</span>
+            </div>
+            <p>High-protein Greek yogurt, mixed berries, granola & honey drizzle</p>
+            <div class="macros-row">
+              <span class="macro p">24g P</span>
+              <span class="macro c">32g C</span>
+              <span class="macro f">6g F</span>
+              <span class="kcal">270 kcal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="price">QAR 25</span>
+              <button class="btn-add" onclick="addToCart('Greek Yogurt Parfait', 25)">Add to Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTIONS -->
+  <section class="subscriptions section" id="subscriptions">
+    <div class="container">
+      <div class="section-header">
+        <h2>Subscription Plans</h2>
+        <p>Commit to your health with our flexible plans</p>
+      </div>
+
+      <div class="plan-toggle">
+        <span class="toggle-label active-label" id="toggle-label">Weekly</span>
+        <label class="switch">
+          <input type="checkbox" id="billing-toggle" onchange="toggleBilling()" />
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label" id="toggle-label-2">Monthly <span class="save-badge">Save 20%</span></span>
+      </div>
+
+      <div class="plans-grid">
+        <!-- Starter Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Starter</h3>
+            <p>Perfect for beginners</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">QAR</span>
+            <span class="amount" data-weekly="350" data-monthly="1120" id="price-starter">350</span>
+            <span class="period" id="period-starter">/week</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 2 meals per day</li>
+            <li>✓ 5 days per week</li>
+            <li>✓ Nutritionist consultation</li>
+            <li>✓ Macro tracking guide</li>
+            <li>✓ Free delivery</li>
+            <li class="dimmed">✗ Custom meal preferences</li>
+            <li class="dimmed">✗ Priority support</li>
+          </ul>
+          <button class="btn-plan" onclick="subscribePlan('Starter')">Choose Starter</button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="plan-card plan-popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="plan-header">
+            <h3>Pro</h3>
+            <p>Serious about results</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">QAR</span>
+            <span class="amount" data-weekly="550" data-monthly="1760" id="price-pro">550</span>
+            <span class="period" id="period-pro">/week</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 3 meals + 1 snack per day</li>
+            <li>✓ 6 days per week</li>
+            <li>✓ Nutritionist consultation</li>
+            <li>✓ Macro tracking guide</li>
+            <li>✓ Free delivery</li>
+            <li>✓ Custom meal preferences</li>
+            <li class="dimmed">✗ Priority support</li>
+          </ul>
+          <button class="btn-plan btn-plan-primary" onclick="subscribePlan('Pro')">Choose Pro</button>
+        </div>
+
+        <!-- Elite Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Elite</h3>
+            <p>Full transformation</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">QAR</span>
+            <span class="amount" data-weekly="750" data-monthly="2400" id="price-elite">750</span>
+            <span class="period" id="period-elite">/week</span>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 3 meals + 2 snacks per day</li>
+            <li>✓ 7 days per week</li>
+            <li>✓ Nutritionist consultation</li>
+            <li>✓ Macro tracking guide</li>
+            <li>✓ Free delivery</li>
+            <li>✓ Custom meal preferences</li>
+            <li>✓ Priority WhatsApp support</li>
+          </ul>
+          <button class="btn-plan" onclick="subscribePlan('Elite')">Choose Elite</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Results</h2>
+        <p>What our clients say</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"NutriReset completely changed how I eat. Lost 8kg in 2 months while gaining muscle. The meals are actually delicious!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <strong>Ahmed K.</strong>
+              <span>Pro Plan Member</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"As a busy mom and fitness enthusiast, this is a lifesaver. Fresh, healthy meals delivered daily. Zero stress, all results."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <strong>Sara M.</strong>
+              <span>Elite Plan Member</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The macro breakdown on every meal is a game changer. I finally understand nutrition and my performance at BFT has improved massively."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <strong>Rashid T.</strong>
+              <span>Elite Plan Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p>Ready to reset your nutrition? We're here to help you find the perfect plan.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Location</strong>
+                <span>The Pearl, Doha, Qatar</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+974 XXXX XXXX</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📸</span>
+              <div>
+                <strong>Instagram</strong>
+                <span>@nutrireset.qa</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🕐</span>
+              <div>
+                <strong>Order Hours</strong>
+                <span>Order by 10pm for next-day delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" onsubmit="submitContact(event)">
+            <h3>Send Us a Message</h3>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" placeholder="+974 XXXX XXXX" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Goal</label>
+              <select>
+                <option>Weight Loss</option>
+                <option>Muscle Gain</option>
+                <option>Maintenance</option>
+                <option>General Health</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="3" placeholder="Tell us about your goals or questions..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-box">
+            <span class="logo-nutri">NUTRI</span>
+            <span class="logo-reset">RESET</span>
+          </div>
+          <p>Personalized nutrition for real life. Eat well, live fully.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/nutrireset.qa" target="_blank">📸 Instagram</a>
+            <a href="#" target="_blank">🎵 TikTok</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#menu">Menu</a>
+          <a href="#subscriptions">Plans</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Plans</h4>
+          <a href="#subscriptions">Starter – QAR 350/week</a>
+          <a href="#subscriptions">Pro – QAR 550/week</a>
+          <a href="#subscriptions">Elite – QAR 750/week</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 NutriReset. All rights reserved. | Doha, Qatar</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty">
+        <span>🛒</span>
+        <p>Your cart is empty</p>
+        <small>Add meals from the menu to get started</small>
+      </div>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total-amount">QAR 0</span>
+      </div>
+      <button class="btn-primary btn-full" onclick="checkout()">Place Order</button>
+    </div>
+  </div>
+
+  <!-- SUBSCRIPTION MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="sub-modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-icon">🎉</div>
+      <h2 id="modal-title">You're Subscribing to Pro!</h2>
+      <p>Fill in your details and we'll get your plan started ASAP.</p>
+      <form onsubmit="submitSubscription(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" placeholder="+974 XXXX XXXX" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>Dietary Preferences</label>
+          <select>
+            <option>No restrictions</option>
+            <option>Gluten-free</option>
+            <option>Dairy-free</option>
+            <option>No pork</option>
+            <option>Vegetarian</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Delivery Address</label>
+          <input type="text" placeholder="Your address in Doha" required />
+        </div>
+        <button type="submit" class="btn-primary btn-full">Confirm Subscription</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="nutrireset.js"></script>
+</body>
+</html>
