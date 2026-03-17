@@ -334,7 +334,14 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 
 .dish-img {
   height: 180px; display: flex; align-items: center; justify-content: center;
-  font-size: 64px; position: relative;
+  font-size: 64px; position: relative; overflow: hidden;
+}
+.dish-photo {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.dish-emoji-fallback {
+  font-size: 64px; display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
 }
 .dish-tags {
   position: absolute; top: 12px; left: 12px;
@@ -349,6 +356,7 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .tag-veg { background: #EDE9FE; color: #5B21B6; }
 .tag-buffet { background: #FEE2E2; color: #991B1B; }
 .tag-popular { background: var(--teal-lt); color: var(--teal-dk); }
+.tag-snack { background: #FDE68A; color: #92400E; }
 
 .dish-body { padding: 18px 20px; }
 .dish-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }

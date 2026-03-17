@@ -9,6 +9,7 @@ const dishes = [
     name: "Grilled Chicken Power Bowl",
     desc: "Lean grilled chicken with roasted veggies, quinoa & tahini drizzle.",
     emoji: "🍗",
+    image: null,
     price: 45,
     calories: 520,
     protein: "42g",
@@ -20,8 +21,9 @@ const dishes = [
   {
     id: 2,
     name: "Macro Salmon Plate",
-    desc: "Atlantic salmon fillet with steamed broccoli, sweet potato & lemon herb sauce.",
+    desc: "Atlantic salmon fillet with potato wedges & lemon herb sauce.",
     emoji: "🐟",
+    image: "images/salmon-potato-wedges.jpg",
     price: 65,
     calories: 610,
     protein: "48g",
@@ -32,9 +34,10 @@ const dishes = [
   },
   {
     id: 3,
-    name: "Beef Kofta & Rice",
-    desc: "Spiced ground beef kofta with saffron basmati, grilled tomato & cucumber salad.",
-    emoji: "🍖",
+    name: "Butter Chicken & Rice",
+    desc: "Tender chicken pieces in rich butter sauce served with fluffy basmati rice.",
+    emoji: "🍛",
+    image: "images/butter-chicken-rice.jpg",
     price: 55,
     calories: 680,
     protein: "38g",
@@ -48,6 +51,7 @@ const dishes = [
     name: "Zucchini Noodle Bowl",
     desc: "Spiralized zucchini with pesto, cherry tomatoes, pine nuts & parmesan.",
     emoji: "🥗",
+    image: null,
     price: 40,
     calories: 310,
     protein: "12g",
@@ -61,6 +65,7 @@ const dishes = [
     name: "Shrimp Stir-Fry",
     desc: "Juicy shrimp with mixed peppers, snap peas & teriyaki glaze on cauliflower rice.",
     emoji: "🍤",
+    image: null,
     price: 58,
     calories: 430,
     protein: "36g",
@@ -74,6 +79,7 @@ const dishes = [
     name: "Falafel Veggie Wrap",
     desc: "Crispy falafel with hummus, pickled veg & greens in a whole wheat wrap.",
     emoji: "🌯",
+    image: "images/wrap.jpg",
     price: 38,
     calories: 490,
     protein: "18g",
@@ -87,6 +93,7 @@ const dishes = [
     name: "Macro Buffet Plate",
     desc: "Build-your-own plate from our rotating macro-balanced buffet. Ask for today's selection.",
     emoji: "🍽️",
+    image: null,
     price: 55,
     calories: 580,
     protein: "35g",
@@ -97,15 +104,16 @@ const dishes = [
   },
   {
     id: 8,
-    name: "Overnight Oats & Berries",
-    desc: "Creamy oats with chia seeds, mixed berries, honey & almond butter.",
-    emoji: "🫐",
+    name: "Berry Toast",
+    desc: "Toasted bread with cream & a colourful mix of fresh strawberries, raspberries & blackberries.",
+    emoji: "🍓",
+    image: "images/berry-toast.jpg",
     price: 35,
     calories: 380,
-    protein: "14g",
-    carbs: "54g",
-    fat: "12g",
-    tags: ["vegetarian"],
+    protein: "10g",
+    carbs: "52g",
+    fat: "14g",
+    tags: ["vegetarian", "snack"],
     bg: "#EFF6FF",
   },
   {
@@ -113,6 +121,7 @@ const dishes = [
     name: "Turkey Stuffed Peppers",
     desc: "Bell peppers filled with lean turkey mince, brown rice, herbs & tomato sauce.",
     emoji: "🫑",
+    image: null,
     price: 50,
     calories: 490,
     protein: "40g",
@@ -123,15 +132,16 @@ const dishes = [
   },
   {
     id: 10,
-    name: "Mezze Reset Box",
-    desc: "Hummus, labneh, tabbouleh, olives & whole grain pita — a fresh Lebanese spread.",
-    emoji: "🫙",
-    price: 42,
-    calories: 420,
-    protein: "16g",
-    carbs: "46g",
-    fat: "20g",
-    tags: ["vegetarian", "buffet"],
+    name: "Hummus & Carrots",
+    desc: "Creamy housemade hummus served with fresh-cut carrot sticks — a clean snack or side.",
+    emoji: "🥕",
+    image: "images/hummus-carrots.jpg",
+    price: 25,
+    calories: 220,
+    protein: "7g",
+    carbs: "24g",
+    fat: "11g",
+    tags: ["vegetarian", "lowcarb", "snack"],
     bg: "#FFF1F2",
   },
   {
@@ -139,6 +149,7 @@ const dishes = [
     name: "Chicken Shawarma Bowl",
     desc: "Marinated rotisserie chicken, garlic sauce, pickles & fattoush on spiced rice.",
     emoji: "🌮",
+    image: null,
     price: 48,
     calories: 560,
     protein: "44g",
@@ -152,6 +163,7 @@ const dishes = [
     name: "Cauliflower Steak Plate",
     desc: "Roasted cauliflower steak with romesco sauce, lentils & wilted spinach.",
     emoji: "🥦",
+    image: null,
     price: 40,
     calories: 350,
     protein: "14g",
@@ -159,6 +171,48 @@ const dishes = [
     fat: "14g",
     tags: ["lowcarb", "vegetarian"],
     bg: "#ECFDF5",
+  },
+  {
+    id: 13,
+    name: "Almond Cookies",
+    desc: "Soft-baked almond cookies — a guilt-lighter treat to satisfy your sweet cravings.",
+    emoji: "🍪",
+    image: "images/cookies.jpg",
+    price: 18,
+    calories: 210,
+    protein: "5g",
+    carbs: "22g",
+    fat: "11g",
+    tags: ["vegetarian", "snack"],
+    bg: "#FEF9C3",
+  },
+  {
+    id: 14,
+    name: "Peanut Butter Bars",
+    desc: "High-protein peanut butter bars — rich, satisfying & macro-friendly.",
+    emoji: "🥜",
+    image: "images/peanut-butter-bars.jpg",
+    price: 22,
+    calories: 280,
+    protein: "14g",
+    carbs: "20g",
+    fat: "16g",
+    tags: ["protein", "snack"],
+    bg: "#FEF3C7",
+  },
+  {
+    id: 15,
+    name: "Chocolate Chip Muffins",
+    desc: "Mini chocolate chip muffins baked fresh daily — a sweet treat in every bite.",
+    emoji: "🧁",
+    image: "images/chocolate-muffins.jpg",
+    price: 20,
+    calories: 240,
+    protein: "5g",
+    carbs: "30g",
+    fat: "12g",
+    tags: ["vegetarian", "snack"],
+    bg: "#F5F0E8",
   },
 ];
 
@@ -176,15 +230,18 @@ function renderMenu(filter = "all") {
 
   filtered.forEach(dish => {
     const tagHTML = dish.tags.map(t => {
-      const map = { protein: ["tag-protein","High Protein"], lowcarb: ["tag-lowcarb","Low Carb"], vegetarian: ["tag-veg","Veg"], buffet: ["tag-buffet","Buffet"], popular: ["tag-popular","Popular"] };
+      const map = { protein: ["tag-protein","High Protein"], lowcarb: ["tag-lowcarb","Low Carb"], vegetarian: ["tag-veg","Veg"], buffet: ["tag-buffet","Buffet"], popular: ["tag-popular","Popular"], snack: ["tag-snack","Snack"] };
       return `<span class="dish-tag ${map[t][0]}">${map[t][1]}</span>`;
     }).join("");
 
     const card = document.createElement("div");
     card.className = "dish-card";
+    const imgContent = dish.image
+      ? `<img src="${dish.image}" alt="${dish.name}" class="dish-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" /><span class="dish-emoji-fallback" style="display:none">${dish.emoji}</span>`
+      : `<span class="dish-emoji-fallback">${dish.emoji}</span>`;
     card.innerHTML = `
       <div class="dish-img" style="background:${dish.bg}">
-        ${dish.emoji}
+        ${imgContent}
         <div class="dish-tags">${tagHTML}</div>
       </div>
       <div class="dish-body">
