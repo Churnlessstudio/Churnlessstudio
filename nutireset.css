@@ -109,7 +109,7 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0d2d2a 100%);
-  background-image: url('images/3O1A3689.jpg');
+  background-image: url('images/Full Day meals.png');
   background-size: cover;
   background-position: center;
   display: flex; align-items: center;
@@ -364,6 +364,7 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .tag-buffet { background: #FEE2E2; color: #991B1B; }
 .tag-popular { background: var(--teal-lt); color: var(--teal-dk); }
 .tag-snack { background: #FDE68A; color: #92400E; }
+.tag-drinks { background: #BAE6FD; color: #075985; }
 
 .dish-body { padding: 18px 20px; }
 .dish-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
