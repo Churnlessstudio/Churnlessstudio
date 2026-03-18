@@ -109,7 +109,7 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0d2d2a 100%);
-  background-image: url('images/Full Day meals.png');
+  background-image: url('images/Full%20Day%20meals.png');
   background-size: cover;
   background-position: center;
   display: flex; align-items: center;
