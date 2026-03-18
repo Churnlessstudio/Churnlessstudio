@@ -109,7 +109,7 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0d2d2a 100%);
-  background-image: url('images/hero-bg.jpg');
+  background-image: url('images/3O1A3689.jpg');
   background-size: cover;
   background-position: center;
   display: flex; align-items: center;
@@ -192,19 +192,17 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .hero-stats span { color: rgba(255,255,255,0.5); font-size: 13px; }
 
 .hero-image {
-  position: absolute; right: 80px; top: 50%;
+  position: absolute; right: 60px; top: 50%;
   transform: translateY(-50%);
-  z-index: 0; opacity: 0.15;
+  z-index: 0;
 }
-.plate-circle {
-  width: 420px; height: 420px; border-radius: 50%;
-  background: rgba(0,168,150,0.2);
-  border: 2px solid rgba(0,168,150,0.3);
-  display: flex; align-items: center; justify-content: center;
+.hero-food-photo {
+  width: 420px; height: 420px;
+  object-fit: cover; border-radius: 50%;
+  border: 4px solid rgba(0,168,150,0.5);
+  box-shadow: 0 0 60px rgba(0,168,150,0.25);
+  opacity: 0.85;
 }
-.plate-inner { text-align: center; }
-.food-emoji { font-size: 80px; }
-.plate-inner p { color: rgba(255,255,255,0.6); margin-top: 12px; font-size: 16px; }
 
 /* ---- HOW IT WORKS ---- */
 .how { padding: 96px 0; background: var(--gray-lt); }
@@ -531,6 +529,40 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 .footer-links a { color: var(--teal); text-decoration: none; }
 .footer-links a:hover { text-decoration: underline; }
 .footer-copy { font-size: 13px; opacity: 0.5; }
+
+/* ---- GALLERY ---- */
+.gallery-section {
+  padding: 80px 24px;
+  background: var(--dark2);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 48px auto 0;
+}
+.gallery-item { overflow: hidden; border-radius: 16px; }
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-tall { grid-row: span 2; }
+.gallery-wide { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .gallery-tall, .gallery-wide { grid-row: span 1; grid-column: span 1; }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
