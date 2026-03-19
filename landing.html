@@ -3,454 +3,798 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NutriReset – Eat Well, Live Fully</title>
+  <title>NutriReset – Healthy Eating. Smart Nutrition. Real Results.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal:    #00A896;
-      --teal-dk: #007A6E;
-      --teal-lt: #E0F7F5;
-      --orange:  #F4A261;
+      --orange:  #F97316;
+      --orange-dk: #EA6A00;
+      --teal:    #00BCD4;
+      --teal-dk: #00A896;
       --dark:    #1A1A2E;
       --gray:    #6B7280;
       --white:   #FFFFFF;
+      --dark-card: #3d3d3d;
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      overflow-x: hidden;
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 0 48px;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
     }
 
-    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+    .nav-logo img { height: 48px; width: auto; }
 
-    /* ---- HERO ---- */
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px; font-weight: 600;
+      color: var(--dark);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-links .dropdown { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 11px; }
+
+    .nav-links .dropdown-menu {
+      display: none;
+      position: absolute; top: 100%; left: 0;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      min-width: 180px;
+      padding: 8px 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+
+    .nav-links .dropdown-menu a {
+      display: block; padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .btn-book {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border: 2.5px solid var(--dark);
+      border-radius: 100px;
+      text-decoration: none;
+      color: var(--dark);
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+
+    .btn-book:hover { background: var(--dark); color: var(--white); }
+
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      background: linear-gradient(135deg, #f0fffe 0%, #e8f8f5 60%, #fff8f3 100%);
       position: relative;
+      display: flex; align-items: center;
       overflow: hidden;
+      padding-top: 72px;
     }
 
-    .hero::before {
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/3O1A3432.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 1280px; margin: 0 auto;
+      padding: 80px 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(40px, 4.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span { color: var(--orange); }
+
+    .hero-text p {
+      font-size: 17px; line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-orange {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-orange:hover { background: var(--orange-dk); transform: translateY(-2px); }
+
+    .btn-orange-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--orange);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .btn-orange-outline:hover { background: var(--orange); color: var(--white); }
+
+    .hero-image-wrap {
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+
+    .hero-circle-rings {
+      position: relative; width: 420px; height: 420px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .hero-circle-rings::before,
+    .hero-circle-rings::after {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,168,150,0.08) 0%, transparent 70%);
-      top: -100px; right: -100px;
-      pointer-events: none;
+      border: 3px solid var(--orange);
     }
 
-    .hero-content {
-      padding: 100px 64px 80px;
+    .hero-circle-rings::before { width: 100%; height: 100%; opacity: 0.6; }
+    .hero-circle-rings::after  { width: 84%; height: 84%; opacity: 0.9; }
+
+    .hero-circle-rings .ring-inner {
+      position: absolute;
+      width: 68%; height: 68%;
+      border-radius: 50%;
+      border: 3px solid var(--orange);
+      opacity: 1;
+    }
+
+    .hero-food-img {
+      width: 75%; height: 75%;
+      object-fit: cover;
+      border-radius: 50%;
       position: relative; z-index: 1;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal-lt);
-      color: var(--teal-dk);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
+    /* ===== BUFFET CARD ===== */
+    .buffet-preview {
+      padding: 60px 48px;
+      background: var(--white);
+    }
+
+    .buffet-preview-card {
+      max-width: 1100px; margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 340px;
+      display: flex; align-items: flex-end;
+      background-image: url('images/buffet photo 1.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .buffet-preview-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.25) 100%);
+      border-radius: 24px;
+    }
+
+    .buffet-preview-text {
+      position: relative; z-index: 1;
+      padding: 48px;
+      color: var(--white);
+    }
+
+    .buffet-preview-text h2 {
+      font-size: 38px; font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .buffet-preview-text p {
+      font-size: 16px; line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      max-width: 380px;
       margin-bottom: 28px;
     }
 
-    .hero-tag::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      animation: blink 2s infinite;
+    /* ===== GUIDANCE SECTION ===== */
+    .guidance {
+      padding: 80px 48px;
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 5.5vw, 80px);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      margin-bottom: 24px;
-      color: var(--dark);
-    }
-
-    .hero h1 span { color: var(--teal); }
-
-    .hero-sub {
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--gray);
-      max-width: 460px;
+    .guidance h2 {
+      text-align: center;
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      color: var(--orange);
       margin-bottom: 48px;
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal);
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 16px 36px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 8px 28px rgba(0,168,150,0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--teal-dk);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(0,168,150,0.4);
-    }
-
-    .btn-primary svg { transition: transform 0.2s; }
-    .btn-primary:hover svg { transform: translateX(4px); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--dark);
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 16px 32px;
-      border-radius: 100px;
-      border: 2px solid rgba(26,26,46,0.15);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-    }
-
-    .stat { text-align: left; }
-    .stat strong {
-      font-family: 'Poppins', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--teal);
-      display: block;
-    }
-    .stat span { font-size: 13px; color: var(--gray); }
-
-    .hero-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 64px 80px 0;
-      position: relative;
-    }
-
-    .hero-image-bg {
-      position: absolute;
-      width: 420px; height: 420px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0,168,150,0.12), rgba(244,162,97,0.08));
-    }
-
-    .hero-food-photo {
-      width: 100%;
-      max-width: 480px;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 24px 48px rgba(0,0,0,0.14));
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    /* ---- FEATURES ---- */
-    .features {
-      padding: 100px 48px;
-      background: var(--white);
-    }
-
-    .features-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 800;
-      line-height: 1.1;
-      color: var(--dark);
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      font-size: 17px;
-      color: var(--gray);
-      max-width: 520px;
-      margin: 0 auto 64px;
-      line-height: 1.7;
-    }
-
-    .features-grid {
+    .guidance-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 24px;
+      max-width: 1100px; margin: 0 auto;
     }
 
-    .feature-card {
-      background: #f8fffe;
-      border: 1px solid rgba(0,168,150,0.1);
-      border-radius: 20px;
-      padding: 40px 32px;
-      text-align: left;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .guidance-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     }
 
-    .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(0,168,150,0.12);
-    }
-
-    .feature-icon {
-      font-size: 36px;
-      margin-bottom: 20px;
+    .guidance-card img {
+      width: 100%; height: 260px;
+      object-fit: cover; object-position: top;
       display: block;
     }
 
-    .feature-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--dark);
+    .guidance-card-body {
+      padding: 24px 20px;
     }
 
-    .feature-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--gray);
+    .guidance-card:nth-child(1) .guidance-card-body { background: var(--teal); }
+    .guidance-card:nth-child(2) .guidance-card-body { background: var(--orange); }
+    .guidance-card:nth-child(3) .guidance-card-body { background: #5cb85c; }
+
+    .guidance-card-body h3 {
+      font-size: 18px; font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
     }
 
-    /* ---- CTA BANNER ---- */
+    .guidance-card-body p {
+      font-size: 14px; line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ===== NUTRITION PLANS ===== */
+    .nutrition {
+      padding: 80px 48px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nutrition h2 {
+      text-align: center;
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 40px;
+    }
+
+    .nutrition-container {
+      max-width: 1100px; margin: 0 auto;
+      background: var(--dark-card);
+      border-radius: 24px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .nutrition-divider {
+      width: 1px; background: rgba(255,255,255,0.15);
+    }
+
+    .plan-card {
+      padding: 0 24px 24px;
+      display: flex; flex-direction: column;
+    }
+
+    .plan-card:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .plan-card img {
+      width: 100%; height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .plan-card h3 {
+      font-size: 14px; font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .plan-card p {
+      font-size: 12px; line-height: 1.6;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .btn-plan {
+      display: block; text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 700;
+      padding: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--white);
+      transition: opacity .2s;
+    }
+
+    .btn-plan:hover { opacity: 0.85; }
+    .btn-plan.teal   { background: var(--teal); }
+    .btn-plan.orange { background: var(--orange); }
+    .btn-plan.green  { background: #5cb85c; }
+
+    /* ===== CTA BANNER ===== */
     .cta-banner {
-      margin: 0 48px 100px;
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dk) 100%);
+      margin: 0 48px 80px;
       border-radius: 28px;
-      padding: 80px 64px;
-      display: flex;
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
+      display: flex; align-items: center;
+    }
+
+    .cta-banner-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/buffet option 2.jpg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.38);
+    }
+
+    .cta-banner-inner {
+      position: relative; z-index: 1;
+      padding: 64px;
+      max-width: 560px;
+    }
+
+    .cta-banner-inner h2 {
+      font-size: 38px; font-weight: 800;
+      color: var(--white); margin-bottom: 12px;
+    }
+
+    .cta-banner-inner .cta-sub {
+      font-size: 16px; font-weight: 700;
+      color: var(--white); margin-bottom: 8px;
+    }
+
+    .cta-banner-inner p {
+      font-size: 15px; line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+    }
+
+    .cta-waves {
+      position: absolute; right: 0; bottom: 0;
+      width: 320px; height: 200px;
+      z-index: 1; pointer-events: none;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--teal);
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
+    }
+
+    .contact-info h2 {
+      font-size: 36px; font-weight: 800;
+      color: var(--white); margin-bottom: 32px;
+    }
+
+    .contact-info .info-row {
+      margin-bottom: 20px;
+    }
+
+    .contact-info .info-row strong {
+      display: block;
+      font-size: 15px; font-weight: 700;
+      color: var(--white); margin-bottom: 4px;
+    }
+
+    .contact-info .info-row span {
+      font-size: 15px; color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+    }
+
+    .btn-dark {
+      display: inline-block;
+      background: rgba(0,0,0,0.35);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-top: 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background .2s;
+    }
+
+    .btn-dark:hover { background: rgba(0,0,0,0.55); }
+
+    .contact-map iframe {
+      width: 100%; height: 320px;
+      border-radius: 16px;
+      border: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #3a3a3a;
+      padding: 60px 48px 40px;
       position: relative;
       overflow: hidden;
     }
 
-    .cta-banner::before {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      top: -150px; right: -100px;
+    .footer-waves {
+      position: absolute; top: 0; left: 0;
+      width: 320px; pointer-events: none;
     }
 
-    .cta-banner::after {
-      content: '';
-      position: absolute;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      bottom: -80px; left: 200px;
-    }
-
-    .cta-text { position: relative; z-index: 1; }
-
-    .cta-text h2 {
-      font-size: clamp(28px, 3vw, 44px);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-
-    .cta-text p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.75);
-      max-width: 420px;
-      line-height: 1.6;
-    }
-
-    .cta-banner .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--white);
-      color: var(--teal-dk);
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 18px 40px;
-      border-radius: 100px;
-      text-decoration: none;
-      white-space: nowrap;
+    .footer-grid {
       position: relative; z-index: 1;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+      gap: 48px;
+      margin-bottom: 48px;
     }
 
-    .cta-banner .btn-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 36px rgba(0,0,0,0.2);
+    .footer-brand img { height: 52px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+
+    .footer-brand p {
+      font-size: 14px; line-height: 1.7;
+      color: rgba(255,255,255,0.65);
     }
 
-    /* ---- FOOTER ---- */
-    footer {
-      text-align: center;
-      padding: 40px 24px;
-      color: var(--gray);
+    .footer-col h4 {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 16px;
+    }
+
+    .footer-col p, .footer-col a {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none; display: block;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover { color: var(--orange); }
+
+    .footer-social { display: flex; gap: 14px; margin-top: 14px; }
+
+    .footer-social a {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.65);
       font-size: 14px;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      transition: border-color .2s, color .2s;
     }
 
-    footer span { color: var(--teal); font-weight: 600; }
+    .footer-social a:hover { border-color: var(--orange); color: var(--orange); }
 
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-content { padding: 100px 24px 48px; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-cta { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-image { padding: 0 24px 60px; }
-      .hero-image-bg { width: 280px; height: 280px; }
-      .features { padding: 80px 24px; }
-      .features-grid { grid-template-columns: 1fr; gap: 20px; }
-      .cta-banner {
-        margin: 0 24px 80px;
-        flex-direction: column;
-        text-align: center;
-        padding: 56px 32px;
-      }
-      .cta-text p { margin: 0 auto; }
+    .footer-form input,
+    .footer-form textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 2px;
+      font-size: 13px;
+      color: var(--white);
+      margin-bottom: 14px;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer-form input::placeholder,
+    .footer-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+    .footer-form textarea { height: 72px; resize: none; }
+
+    .footer-form button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 10px 28px;
+      cursor: pointer;
+      float: right;
+      transition: background .2s;
+    }
+
+    .footer-form button:hover { background: rgba(255,255,255,0.1); }
+
+    .footer-bottom {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .navbar { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-btns { justify-content: center; }
+      .hero-image-wrap { display: none; }
+      .guidance-grid, .nutrition-container { grid-template-columns: 1fr; }
+      .plan-card:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .cta-banner { margin: 0 24px 60px; }
+      .cta-waves { display: none; }
+      .contact { grid-template-columns: 1fr; padding: 60px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .buffet-preview { padding: 40px 24px; }
+      .guidance, .nutrition { padding: 60px 24px; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <img src="images/Nutri Fit Logo.png" alt="NutriReset" onerror="this.style.display='none'" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li class="dropdown">
+      <a href="nutireset.html#menu">Menu</a>
+      <div class="dropdown-menu">
+        <a href="nutireset.html#menu">Weekly Meals</a>
+        <a href="nutireset.html#subscriptions">Subscription Plans</a>
+      </div>
+    </li>
+    <li><a href="nutireset.html#how">How It Works</a></li>
+  </ul>
+  <a href="nutireset.html#order" class="btn-book">ORDER NOW</a>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Qatar's #1 Meal Prep Service</div>
-    <h1>Eat Well,<br /><span>Live Fully.</span></h1>
-    <p class="hero-sub">Personalized nutrition for real life. Macro-balanced meals, ready-to-eat and delivered fresh to your door — every day.</p>
-    <div class="hero-cta">
-      <a href="nutireset.html" class="btn-primary">
-        Explore Our Menu
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="nutireset.html#subscriptions" class="btn-outline">View Plans</a>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1><span>Healthy Eating.</span><br />Smart Nutrition.<br />Real Results.</h1>
+      <p>Macro-based meal subscriptions, expert guidance, and fresh meals delivered—everything you need in one place.</p>
+      <div class="hero-btns">
+        <a href="nutireset.html#subscriptions" class="btn-orange">View Meal Plans</a>
+        <a href="nutireset.html#menu" class="btn-orange-outline">Explore Menu</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><strong>500+</strong><span>Happy Clients</span></div>
-      <div class="stat"><strong>30+</strong><span>Fresh Dishes</span></div>
-      <div class="stat"><strong>100%</strong><span>Fresh Daily</span></div>
+    <div class="hero-image-wrap">
+      <div class="hero-circle-rings">
+        <div class="ring-inner"></div>
+        <img src="images/Grilled salmon with rice & vegetables.png" alt="Fresh meal" class="hero-food-img" />
+      </div>
     </div>
-  </div>
-
-  <div class="hero-image">
-    <div class="hero-image-bg"></div>
-    <img src="images/Grilled%20salmon%20with%20rice%20%26%20vegetables.png" alt="Fresh macro-balanced meal" class="hero-food-photo" />
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-  <div class="features-inner">
-    <div class="section-label">Why NutriReset</div>
-    <h2 class="section-title">Nutrition made simple,<br />meals made delicious.</h2>
-    <p class="section-sub">We handle the planning, prepping, and cooking — you just enjoy eating well.</p>
+<!-- BUFFET PREVIEW CARD -->
+<section class="buffet-preview">
+  <div class="buffet-preview-card">
+    <div class="buffet-preview-text">
+      <h2>Visit Our Buffet</h2>
+      <p>Prefer flexibility? Come dine with us and enjoy our healthy macro-based buffet, where every choice supports your goals.</p>
+      <a href="nutireset.html" class="btn-orange">Explore The Menu</a>
+    </div>
+  </div>
+</section>
 
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">🥗</span>
-        <h3>Chef-Crafted Meals</h3>
-        <p>Every dish is designed by nutritionists and prepared fresh daily — never frozen, always flavourful.</p>
+<!-- GUIDANCE SECTION -->
+<section class="guidance">
+  <h2>Nutrition Made for You</h2>
+  <div class="guidance-grid">
+    <div class="guidance-card">
+      <img src="images/Grilled Chicken Pasta.png" alt="Clean Eating Meal Plan" />
+      <div class="guidance-card-body">
+        <h3>Clean Eating Meal Plan</h3>
+        <p>Simple, clean meals made from fresh ingredients. Perfect for everyday healthy eating without overcomplicating your lifestyle.</p>
       </div>
-      <div class="feature-card">
-        <span class="feature-icon">📊</span>
-        <h3>Macro-Balanced</h3>
-        <p>Clear protein, carbs, and fat values on every meal so you always know exactly what you're eating.</p>
+    </div>
+    <div class="guidance-card">
+      <img src="images/Low Fat Butter Chicken.png" alt="Choose Your Plan" />
+      <div class="guidance-card-body">
+        <h3>Choose Your Plan</h3>
+        <p>Smartly planned meals tailored to your goals. Balanced portions, consistent results, and zero guesswork in your daily nutrition.</p>
       </div>
-      <div class="feature-card">
-        <span class="feature-icon">🚀</span>
-        <h3>Flexible Plans</h3>
-        <p>Weekly or monthly subscriptions, or order à la carte. Customise your menu new every week.</p>
+    </div>
+    <div class="guidance-card">
+      <img src="images/Grilled salmon with rice & vegetables.png" alt="Macro-Based Fresh Buffet" />
+      <div class="guidance-card-body">
+        <h3>Macro-Based Fresh Buffet</h3>
+        <p>Build your plate your way with macro-balanced options, fresh choices, flexible portions, and full control over your nutrition.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRITION PLANS -->
+<section class="nutrition">
+  <h2>Meal Subscription Plans</h2>
+  <div class="nutrition-container">
+    <div class="plan-card">
+      <img src="images/Full Day meals.png" alt="Full Day Plan" />
+      <h3>Full Day Meal Plan</h3>
+      <p>Complete daily nutrition — breakfast, lunch, dinner & snacks. Fresh, balanced, and ready to eat.</p>
+      <a href="nutireset.html#subscriptions" class="btn-plan teal">View Plan</a>
+    </div>
+    <div class="plan-card">
+      <img src="images/Chicken Ceaser with Potatos.png" alt="Weekly Plan" />
+      <h3>Weekly Subscription</h3>
+      <p>Smartly planned meals tailored to your goals. Balanced portions, consistent results, zero guesswork.</p>
+      <a href="nutireset.html#subscriptions" class="btn-plan orange">View Plan</a>
+    </div>
+    <div class="plan-card">
+      <img src="images/Grilled chicken with mashed potatos.png" alt="Custom Plan" />
+      <h3>Custom Selection</h3>
+      <p>Build your plate your way — pick individual meals from our full menu with full macro control.</p>
+      <a href="nutireset.html#menu" class="btn-plan green">View Plan</a>
     </div>
   </div>
 </section>
 
 <!-- CTA BANNER -->
 <div class="cta-banner">
-  <div class="cta-text">
-    <h2>Ready to reset<br />your nutrition?</h2>
-    <p>Join hundreds of clients across Qatar eating better, feeling stronger, and spending zero time in the kitchen.</p>
+  <div class="cta-banner-bg"></div>
+  <div class="cta-banner-inner">
+    <h2>Visit Our Buffet</h2>
+    <p class="cta-sub">More Than Meals. A Complete Nutrition Solution.</p>
+    <p>Our meal subscriptions are designed to support your goals with science-based nutrition, expert guidance, and real tracking.</p>
+    <a href="nutireset.html" class="btn-orange">Explore Meal Plans</a>
   </div>
-  <a href="nutireset.html" class="btn-white">
-    Get Started
-    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
+  <svg class="cta-waves" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M320 160 C260 140, 180 180, 120 140 C60 100, 20 130, 0 120" stroke="#F97316" stroke-width="4" fill="none"/>
+    <path d="M320 185 C260 165, 180 200, 120 165 C60 130, 20 155, 0 145" stroke="#00BCD4" stroke-width="4" fill="none"/>
+    <path d="M320 135 C270 115, 200 155, 150 120 C90 80, 40 110, 0 98" stroke="#F97316" stroke-width="2.5" fill="none" opacity="0.5"/>
+  </svg>
 </div>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="contact-info">
+    <h2>Get In Touch</h2>
+    <div class="info-row">
+      <strong>Email:</strong>
+      <span>nutireset@gmail.com</span>
+    </div>
+    <div class="info-row">
+      <strong>Address</strong>
+      <span>The Pearl – Porto Arabia, Qatar</span>
+    </div>
+    <div class="info-row">
+      <strong>Assistance Hours</strong>
+      <span>Mon – Sat &nbsp;9:00am – 8:00pm<br />Sunday – CLOSED</span>
+    </div>
+    <div class="info-row">
+      <strong>Phone Number:</strong>
+      <span>+974 0000 0000</span>
+    </div>
+    <a href="nutireset.html" class="btn-dark">Visit Our Menu</a>
+  </div>
+  <div class="contact-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4!2d51.5388!3d25.3684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534ffdce87f%3A0x44d0e7e8b2b89b!2sThe%20Pearl%2C%20Doha%2C%20Qatar!5e0!3m2!1sen!2sqa!4v1"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2024 <span>NutriReset</span> · Qatar's freshest meal prep service</p>
+  <!-- Decorative waves top-left -->
+  <svg class="footer-waves" viewBox="0 0 300 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 80 C50 40, 130 100, 200 60 C260 25, 290 60, 300 50" stroke="#F97316" stroke-width="4" fill="none"/>
+    <path d="M0 110 C50 70, 130 130, 200 90 C260 55, 290 90, 300 80" stroke="#00BCD4" stroke-width="4" fill="none"/>
+    <path d="M0 55 C60 20, 140 80, 210 45 C265 15, 292 45, 300 35" stroke="#F97316" stroke-width="2.5" fill="none" opacity="0.4"/>
+  </svg>
+
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <img src="images/Nutri Fit Logo.png" alt="NutriReset" onerror="this.style.display='none'" />
+      <p>Macro-based meal subscriptions, expert guidance, and fresh meals—everything you need to eat well and live fully.</p>
+    </div>
+
+    <!-- Reach Us -->
+    <div class="footer-col">
+      <h4>Reach Us</h4>
+      <p><strong style="color:rgba(255,255,255,0.9)">Address:</strong> The Pearl – Porto Arabia, Qatar</p>
+      <p><strong style="color:rgba(255,255,255,0.9)">Phone:</strong> +974 0000 0000</p>
+      <p><strong style="color:rgba(255,255,255,0.9)">Email:</strong> nutireset@gmail.com</p>
+      <h4 style="margin-top:20px">Follow Us</h4>
+      <div class="footer-social">
+        <a href="#">f</a>
+        <a href="#">t</a>
+        <a href="#">in</a>
+        <a href="#">ig</a>
+      </div>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="#">Home</a>
+      <a href="nutireset.html#menu">Menu</a>
+      <a href="nutireset.html#subscriptions">Plans</a>
+      <a href="nutireset.html#how">How It Works</a>
+      <a href="nutireset.html#order" style="color:var(--orange); font-weight:600; margin-top:8px">Order Now →</a>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="footer-col">
+      <h4>Contact Form</h4>
+      <form class="footer-form" onsubmit="return false;">
+        <input type="text" placeholder="Name ..." />
+        <input type="tel" placeholder="Phone Number ..." />
+        <input type="email" placeholder="Email ..." />
+        <textarea placeholder="Your Message ..."></textarea>
+        <button type="submit">SUBMIT</button>
+        <div style="clear:both"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024 NutriReset. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
