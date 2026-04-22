@@ -1275,18 +1275,19 @@ document.getElementById("cartBtn").addEventListener("click", openCart);
 // --- SUBSCRIPTION PLAN SELECTION ---
 function selectPlan(plan, price) {
   const titles = {
-    weekly: "Weekly Plan Selected 🌿",
-    monthly: "Monthly Plan Selected 🏆",
+    weekly:  "Weekly Plan Selected 🌿",
+    daily:   "Daily Meals Selected 🍱",
+    kids:    "Kids Lunch Box Selected 🎒",
   };
   const descs = {
     weekly: `You've selected the Weekly Plan at QAR ${price}/week. Fill out the order form below and we'll get you started right away!`,
-    monthly: `Excellent choice! You've selected the Monthly Plan at QAR ${price}/month. Fill out the order form below and enjoy priority service.`,
+    daily:  `Great choice! Daily Meals at QAR ${price}/day. Fill out the form below and we'll confirm your first delivery.`,
+    kids:   `Kids Lunch Box at QAR ${price}/month. Fill out the form below and we'll be in touch to discuss your child's preferences.`,
   };
-  document.getElementById("subModalTitle").textContent = titles[plan];
-  document.getElementById("subModalDesc").textContent = descs[plan];
+  document.getElementById("subModalTitle").textContent = titles[plan] || "Plan Selected";
+  document.getElementById("subModalDesc").textContent = descs[plan] || `You've selected a plan at QAR ${price}. Fill out the order form to get started.`;
 
-  // Pre-select in form
-  document.getElementById("orderType").value = plan;
+  document.getElementById("orderType").value = plan === "daily" ? "alacarte" : plan;
   togglePlanField();
 
   document.getElementById("subModal").classList.add("open");
@@ -1295,6 +1296,47 @@ function selectPlan(plan, price) {
 function closeSubModal() {
   document.getElementById("subModal").classList.remove("open");
   document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+}
+
+// --- MONTHLY PLAN MODAL ---
+function openMonthlyModal() {
+  document.getElementById("monthlyModal").classList.add("open");
+}
+function closeMonthlyModal() {
+  document.getElementById("monthlyModal").classList.remove("open");
+}
+function selectMonthlyPlan(type) {
+  closeMonthlyModal();
+  const titles = {
+    customized: "Monthly Plan — Customized 🔬",
+    standard:   "Monthly Plan — Standard 📋",
+  };
+  const descs = {
+    customized: "You've chosen the Customized Monthly Plan. Includes an Evolt 360° body scan, 1 nutrition consultation, and a custom weekly macro plan built around your goals. Fill out the form below.",
+    standard:   "You've chosen the Standard Monthly Plan. Provide your own calorie & macro targets and receive 2 free Evolt tests (pre + post). Fill out the form below.",
+  };
+  document.getElementById("subModalTitle").textContent = titles[type];
+  document.getElementById("subModalDesc").textContent = descs[type];
+  document.getElementById("orderType").value = "monthly";
+  togglePlanField();
+  document.getElementById("subModal").classList.add("open");
+}
+
+// --- KETO PLAN MODAL ---
+function openKetoModal() {
+  document.getElementById("ketoModal").classList.add("open");
+}
+function closeKetoModal() {
+  document.getElementById("ketoModal").classList.remove("open");
+}
+function selectKetoPlan(tier, price) {
+  closeKetoModal();
+  const labels = { basic: "Basic (2 meals)", standard: "Standard (3 meals)", full: "Full (4 meals)" };
+  document.getElementById("subModalTitle").textContent = `Keto Subscription — ${labels[tier]} 🥑`;
+  document.getElementById("subModalDesc").textContent = `You've chosen the Keto ${labels[tier]} plan at QAR ${price}/month. Fill out the form below and we'll get your keto journey started!`;
+  document.getElementById("orderType").value = "monthly";
+  togglePlanField();
+  document.getElementById("subModal").classList.add("open");
 }
 
 // --- PLAN FIELD TOGGLE ---
@@ -1333,6 +1375,12 @@ document.getElementById("successModal").addEventListener("click", function(e) {
 });
 document.getElementById("subModal").addEventListener("click", function(e) {
   if (e.target === this) closeSubModal();
+});
+document.getElementById("monthlyModal").addEventListener("click", function(e) {
+  if (e.target === this) closeMonthlyModal();
+});
+document.getElementById("ketoModal").addEventListener("click", function(e) {
+  if (e.target === this) closeKetoModal();
 });
 
 // --- MOBILE MENU ---

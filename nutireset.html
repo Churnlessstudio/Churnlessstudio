@@ -62,27 +62,20 @@
 <section class="how" id="how">
   <div class="container">
     <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">Three simple steps to eating better every day</p>
+    <p class="section-sub">Two simple steps to eating better every day</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
         <div class="step-icon">📋</div>
-        <h3>Choose Your Plan</h3>
+        <h3><a href="#subscriptions" class="step-link">Choose Your Plan</a></h3>
         <p>Pick from weekly or monthly subscriptions, or order individual meals on demand.</p>
       </div>
       <div class="step-arrow">→</div>
       <div class="step">
         <div class="step-num">02</div>
         <div class="step-icon">🍽️</div>
-        <h3>Select Your Meals</h3>
+        <h3><a href="#menu" class="step-link">Select Your Meals</a></h3>
         <p>Customize your menu from our chef-crafted, macro-balanced dishes every week.</p>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-icon">🚚</div>
-        <h3>We Deliver Fresh</h3>
-        <p>Your meals are freshly prepared and delivered right to your door in Qatar.</p>
       </div>
     </div>
   </div>
@@ -99,48 +92,73 @@
         <div class="plan-badge">Most Popular</div>
         <div class="plan-icon">🌿</div>
         <h3>Weekly Plan</h3>
-        <div class="plan-price"><span>QAR 350</span> / week</div>
-        <p class="plan-desc">5 days of balanced lunches and dinners, freshly prepared.</p>
+        <div class="plan-price"><span>QAR 500</span> / week</div>
+        <p class="plan-desc">1 breakfast, 1 lunch, 1 dinner &amp; 1 snack per day — 5 days a week.</p>
         <ul class="plan-features">
-          <li>✓ 5 lunch + 5 dinner daily</li>
           <li>✓ Macro-tracked meals</li>
-          <li>✓ Weekly menu rotation</li>
           <li>✓ Free delivery</li>
           <li>✓ Flexible customization</li>
         </ul>
-        <button class="btn-plan" onclick="selectPlan('weekly', 350)">Subscribe Weekly</button>
+        <button class="btn-plan" onclick="selectPlan('weekly', 500)">Subscribe Weekly</button>
       </div>
 
       <div class="plan-card plan-featured" data-plan="monthly">
         <div class="plan-badge badge-gold">Best Value</div>
         <div class="plan-icon">🏆</div>
         <h3>Monthly Plan</h3>
-        <div class="plan-price"><span>QAR 1,200</span> / month</div>
-        <p class="plan-saving">Save QAR 200 vs weekly</p>
-        <p class="plan-desc">Full month of personalized nutrition — our most popular package.</p>
+        <div class="plan-price"><span>starts from QAR 1,800</span> / month</div>
+        <p class="plan-desc">Full month of personalized nutrition — choose Customized or Standard.</p>
         <ul class="plan-features">
-          <li>✓ All Weekly Plan benefits</li>
-          <li>✓ Priority delivery slot</li>
-          <li>✓ Free nutrition consultation</li>
-          <li>✓ Custom macro targets</li>
-          <li>✓ Loyalty rewards</li>
+          <li>✓ Customized or Standard options</li>
+          <li>✓ Evolt 360° body scan available</li>
+          <li>✓ Macro-tracked meals</li>
+          <li>✓ Free delivery</li>
         </ul>
-        <button class="btn-plan btn-plan-featured" onclick="selectPlan('monthly', 1200)">Subscribe Monthly</button>
+        <button class="btn-plan btn-plan-featured" onclick="openMonthlyModal()">View Options</button>
       </div>
 
-      <div class="plan-card" data-plan="custom">
-        <div class="plan-badge badge-teal">Flexible</div>
-        <div class="plan-icon">⚡</div>
-        <h3>À La Carte</h3>
-        <div class="plan-price"><span>QAR 35–65</span> / meal</div>
-        <p class="plan-desc">No commitment. Order individual meals whenever you want.</p>
+      <div class="plan-card" data-plan="daily">
+        <div class="plan-badge badge-teal">Daily</div>
+        <div class="plan-icon">🍱</div>
+        <h3>Daily Meals</h3>
+        <div class="plan-price"><span>QAR 168</span> / day</div>
+        <p class="plan-desc">Everything you need in a day — perfectly portioned and macro-tracked.</p>
         <ul class="plan-features">
-          <li>✓ No subscription needed</li>
-          <li>✓ Same day ordering</li>
-          <li>✓ Mix & match dishes</li>
-          <li>✓ Order anytime</li>
+          <li>✓ 1 breakfast + 1 lunch + 1 dinner</li>
+          <li>✓ 2 snacks</li>
+          <li>✓ 1 protein shake</li>
+          <li>✓ Free delivery</li>
         </ul>
-        <button class="btn-plan" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order À La Carte</button>
+        <button class="btn-plan" onclick="selectPlan('daily', 168)">Order Daily</button>
+      </div>
+
+      <div class="plan-card" data-plan="kids">
+        <div class="plan-badge badge-purple">Kids</div>
+        <div class="plan-icon">🎒</div>
+        <h3>Kids Lunch Box</h3>
+        <div class="plan-price"><span>QAR 1,200</span> / month</div>
+        <p class="plan-desc">Balanced nutrition for school kids aged 5–15, freshly prepared daily.</p>
+        <ul class="plan-features">
+          <li>✓ 1 healthy main meal/day</li>
+          <li>✓ 1 protein snack (yogurt, labneh, hummus…)</li>
+          <li>✓ 1 energy snack (fruit, oat bar, date balls…)</li>
+          <li>✓ Free delivery</li>
+        </ul>
+        <button class="btn-plan" onclick="selectPlan('kids', 1200)">Subscribe Now</button>
+      </div>
+
+      <div class="plan-card" data-plan="keto">
+        <div class="plan-badge badge-green">Keto</div>
+        <div class="plan-icon">🥑</div>
+        <h3>Keto Subscription</h3>
+        <div class="plan-price"><span>from QAR 1,500</span> / month</div>
+        <p class="plan-desc">Strict keto &amp; low-carb plans for fat loss, busy professionals, and serious clients.</p>
+        <ul class="plan-features">
+          <li>✓ Basic — 2 meals — QAR 1,500</li>
+          <li>✓ Standard — 3 meals — QAR 1,800</li>
+          <li>✓ Full — 4 meals — QAR 2,350</li>
+        </ul>
+        <button class="btn-plan" onclick="openKetoModal()">Choose Tier</button>
       </div>
 
     </div>
@@ -266,6 +284,79 @@
     <h3 id="subModalTitle">Weekly Plan Selected</h3>
     <p id="subModalDesc">You've chosen the Weekly Plan at QAR 350/week. Fill out the order form below and we'll get you started!</p>
     <button class="btn-primary" onclick="closeSubModal()">Continue to Order</button>
+  </div>
+</div>
+
+<!-- MONTHLY PLAN MODAL -->
+<div class="modal-overlay" id="monthlyModal">
+  <div class="modal-card modal-wide">
+    <button class="modal-close-btn" onclick="closeMonthlyModal()">✕</button>
+    <div class="modal-icon">🏆</div>
+    <h3>Choose Your Monthly Plan</h3>
+    <p>Select the option that best fits your goals — starts from QAR 1,800/month</p>
+    <div class="monthly-options">
+      <div class="monthly-option">
+        <div class="monthly-option-icon">🔬</div>
+        <h4>Customized</h4>
+        <ul class="plan-features">
+          <li>✓ Evolt 360° body scan</li>
+          <li>✓ 1 nutrition consultation</li>
+          <li>✓ Custom weekly calories &amp; macros based on your scan &amp; goals</li>
+        </ul>
+        <button class="btn-plan" onclick="selectMonthlyPlan('customized')">Choose Customized</button>
+      </div>
+      <div class="monthly-option-divider">or</div>
+      <div class="monthly-option">
+        <div class="monthly-option-icon">📋</div>
+        <h4>Standard</h4>
+        <ul class="plan-features">
+          <li>✓ You provide your calorie &amp; macro targets</li>
+          <li>✓ 2 free Evolt tests included</li>
+          <li>✓ Pre-test at start + post-test after 1 month</li>
+        </ul>
+        <button class="btn-plan" onclick="selectMonthlyPlan('standard')">Choose Standard</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KETO PLAN MODAL -->
+<div class="modal-overlay" id="ketoModal">
+  <div class="modal-card modal-wide">
+    <button class="modal-close-btn" onclick="closeKetoModal()">✕</button>
+    <div class="modal-icon">🥑</div>
+    <h3>Keto Subscription</h3>
+    <p>Choose the tier that matches your daily routine</p>
+    <div class="keto-tiers">
+      <div class="keto-tier" onclick="selectKetoPlan('basic', 1500)">
+        <h4>Basic Keto</h4>
+        <div class="keto-price">QAR 1,500 <span>/month</span></div>
+        <ul class="plan-features">
+          <li>✓ 1 main meal/day</li>
+          <li>✓ 1 snack/day</li>
+        </ul>
+        <button class="btn-plan">Select</button>
+      </div>
+      <div class="keto-tier keto-tier-featured" onclick="selectKetoPlan('standard', 1800)">
+        <div class="plan-badge badge-gold" style="position:relative;top:auto;left:auto;transform:none;display:inline-block;margin-bottom:10px">Popular</div>
+        <h4>Standard Keto</h4>
+        <div class="keto-price">QAR 1,800 <span>/month</span></div>
+        <ul class="plan-features">
+          <li>✓ 2 main meals/day</li>
+          <li>✓ 1 snack/day</li>
+        </ul>
+        <button class="btn-plan btn-plan-featured">Select</button>
+      </div>
+      <div class="keto-tier" onclick="selectKetoPlan('full', 2350)">
+        <h4>Full Keto</h4>
+        <div class="keto-price">QAR 2,350 <span>/month</span></div>
+        <ul class="plan-features">
+          <li>✓ 3 meals/day</li>
+          <li>✓ 1 snack/day</li>
+        </ul>
+        <button class="btn-plan">Select</button>
+      </div>
+    </div>
   </div>
 </div>
 
